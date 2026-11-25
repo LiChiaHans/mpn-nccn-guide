@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MPN 骨髓增生性腫瘤 — NCCN v3.2026 臨床速查手冊</title>
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #991b1b;
+      --primary-light: #fee2e2;
+      --accent: #dc2626;
+      --danger-bg: #fef2f2;
+      --danger-border: #ef4444;
+      --danger-text: #991b1b;
+      --warn-bg: #fffbeb;
+      --warn-border: #f59e0b;
+      --warn-text: #92400e;
+      --ok-bg: #f0fdf4;
+      --ok-border: #22c55e;
+      --ok-text: #166534;
+      --info-bg: #eff6ff;
+      --info-border: #3b82f6;
+      --info-text: #1e40af;
+      --purple-bg: #f5f3ff;
+      --purple-border: #8b5cf6;
+      --purple-text: #5b21b6;
+      --badge-bg: #e2e8f0;
+      --badge-text: #334155;
+      --shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+      --radius: 12px;
+      --sidebar-w: 288px;
+      --topbar-h: 64px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1120;
+      --surface: #111827;
+      --surface-alt: #1e293b;
+      --border: #293548;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #f87171;
+      --primary-light: #3b151a;
+      --accent: #ef4444;
+      --danger-bg: #2c1215;
+      --danger-border: #f87171;
+      --danger-text: #fca5a5;
+      --warn-bg: #2b200a;
+      --warn-border: #fbbf24;
+      --warn-text: #fde68a;
+      --ok-bg: #0b2619;
+      --ok-border: #4ade80;
+      --ok-text: #86efac;
+      --info-bg: #0f213d;
+      --info-border: #60a5fa;
+      --info-text: #93c5fd;
+      --purple-bg: #22163b;
+      --purple-border: #a78bfa;
+      --purple-text: #ddd6fe;
+      --badge-bg: #1e293b;
+      --badge-text: #cbd5e1;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* Topbar */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--topbar-h);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 20px;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .brand .ver {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .portal-link {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    .portal-link:hover {
+      border-color: var(--accent);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .search-wrap {
+      flex: 1;
+      max-width: 440px;
+      margin-left: auto;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      padding: 8px 36px 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-input:focus { border-color: var(--accent); }
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: none;
+      font-size: 15px;
+    }
+    .search-count {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .theme-btn {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: var(--topbar-h);
+      left: 0;
+      bottom: 0;
+      width: var(--sidebar-w);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 14px 12px 36px;
+      z-index: 90;
+      transition: transform .25s ease;
+    }
+    .nav-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin: 14px 10px 6px;
+    }
+    .nav-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13.5px;
+      margin-bottom: 2px;
+      transition: background .15s, color .15s;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .nav-code {
+      font-size: 10.5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 1px 6px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      z-index: 85;
+    }
+    .overlay.open { display: block; }
+
+    /* Main */
+    .main {
+      margin-left: var(--sidebar-w);
+      margin-top: var(--topbar-h);
+      padding: 28px 32px 84px;
+      max-width: 1160px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 55%, #dc2626 100%);
+      color: #ffffff;
+      padding: 26px 28px;
+      border-radius: 16px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+    .hero h1 { margin: 0 0 8px; font-size: 24px; line-height: 1.3; }
+    .hero p { margin: 0; opacity: 0.94; font-size: 14px; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .hero-pill {
+      background: rgba(255,255,255,0.18);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* Quick Jump Chips */
+    .quick-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .15s;
+    }
+    .chip:hover {
+      border-color: var(--accent);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    /* Sections */
+    section.card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: calc(var(--topbar-h) + 16px);
+    }
+    .sec-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+    .sec-header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--primary);
+    }
+    .sec-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .code-tag {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    h3 {
+      font-size: 16px;
+      margin: 20px 0 10px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h4 {
+      font-size: 14.5px;
+      margin: 14px 0 6px;
+      color: var(--primary);
+    }
+    ul, ol { margin: 8px 0 14px; padding-left: 22px; }
+    li { margin-bottom: 6px; }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+    .callout.info { background: var(--info-bg); border-color: var(--info-border); color: var(--info-text); }
+    .callout.warn { background: var(--warn-bg); border-color: var(--warn-border); color: var(--warn-text); }
+    .callout.danger { background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger-text); }
+    .callout.ok { background: var(--ok-bg); border-color: var(--ok-border); color: var(--ok-text); }
+    .callout.purple { background: var(--purple-bg); border-color: var(--purple-border); color: var(--purple-text); }
+    .callout strong { display: inline-block; margin-bottom: 2px; }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 6px;
+      vertical-align: middle;
+      margin: 0 2px;
+    }
+    .b-pref { background: var(--ok-bg); color: var(--ok-text); border: 1px solid var(--ok-border); }
+    .b-cat1 { background: var(--info-bg); color: var(--info-text); border: 1px solid var(--info-border); }
+    .b-cat2b { background: var(--warn-bg); color: var(--warn-text); border: 1px solid var(--warn-border); }
+    .b-new { background: var(--purple-bg); color: var(--purple-text); border: 1px solid var(--purple-border); }
+    .b-warn { background: var(--danger-bg); color: var(--danger-text); border: 1px solid var(--danger-border); }
+    .b-gray { background: var(--badge-bg); color: var(--badge-text); }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; margin: 12px 0 18px; border-radius: 8px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { background: var(--surface-alt); font-weight: 700; color: var(--primary); white-space: nowrap; }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--surface-alt); }
+
+    /* Grid */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; margin: 12px 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 12px 0; }
+    .box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .box h4 { margin-top: 0; }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+    .tab-btn {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: all .15s;
+    }
+    .tab-btn:hover { border-color: var(--accent); color: var(--primary); }
+    .tab-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Calculators */
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 12px 0; }
+    .calc-field {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13.5px;
+    }
+    .calc-field label { font-weight: 600; color: var(--text); font-size: 13px; }
+    .calc-field select, .calc-field input[type="number"] {
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 13.5px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-alt);
+      cursor: pointer;
+      font-size: 13.5px;
+    }
+    .check-item input { margin-top: 3px; accent-color: var(--primary); }
+    .res-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 14px; }
+    .res-card {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      background: var(--surface-alt);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .res-card.ok { border-left-color: var(--ok-border); background: var(--ok-bg); color: var(--ok-text); }
+    .res-card.info { border-left-color: var(--info-border); background: var(--info-bg); color: var(--info-text); }
+    .res-card.warn { border-left-color: var(--warn-border); background: var(--warn-bg); color: var(--warn-text); }
+    .res-card.danger { border-left-color: var(--danger-border); background: var(--danger-bg); color: var(--danger-text); }
+    .res-title { font-size: 12px; font-weight: 700; opacity: 0.85; }
+    .res-val { font-size: 19px; font-weight: 800; margin: 2px 0 4px; }
+    .res-desc { font-size: 12.5px; line-height: 1.5; }
+
+    /* Slider for MPN-10 */
+    .slider-row {
+      display: grid;
+      grid-template-columns: 1fr 140px 38px;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-alt);
+      font-size: 13.5px;
+    }
+    .slider-row input[type="range"] { width: 100%; accent-color: var(--primary); }
+    .slider-val {
+      text-align: center;
+      font-weight: 700;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 6px;
+      padding: 2px 6px;
+    }
+
+    /* Highlight */
+    mark.hl {
+      background: #fde047;
+      color: #0f172a;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .menu-btn { display: inline-block; }
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; padding: 20px 16px 70px; }
+      .portal-link { display: none; }
+      .search-count { display: none; }
+      .slider-row { grid-template-columns: 1fr 100px 34px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="開啟目錄">☰</button>
+    <div class="brand">
+      <span>🩸 MPN 骨髓增生性腫瘤</span>
+      <span class="ver">NCCN v3.2026</span>
+    </div>
+    <a class="portal-link" href="https://lichiahans.github.io/hematology-portal/" target="_blank" rel="noopener">← 血液科入口網</a>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="即時搜尋藥物、基因、分數或條目... (按 / 聚焦)" aria-label="搜尋指引內容" />
+      <button class="search-clear" id="searchClear" aria-label="清除搜尋">✕</button>
+    </div>
+    <span class="search-count" id="searchCount"></span>
+    <button class="theme-btn" id="themeBtn" type="button">🌙 深色</button>
+  </header>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar" aria-label="章節快速導覽">
+    <div class="nav-group-title">總覽與診斷</div>
+    <a class="nav-link" href="#updates"><span>v1–3.2026 重點更新</span><span class="nav-code">UPDATES</span></a>
+    <a class="nav-link" href="#workup"><span>初始檢查與評估</span><span class="nav-code">MPN-1</span></a>
+    <a class="nav-link" href="#diagnosis"><span>WHO/ICC 診斷與纖維化分級</span><span class="nav-code">MPN-A/B/C</span></a>
+    <a class="nav-link" href="#mutations"><span>驅動與 HMR 突變預後</span><span class="nav-code">MPN-D</span></a>
+
+    <div class="nav-group-title">骨髓纖維化 (MF)</div>
+    <a class="nav-link" href="#mf-risk"><span>MF 風險分層模型</span><span class="nav-code">MPN-2/MF-A</span></a>
+    <a class="nav-link" href="#mf-tx"><span>低風險與高風險 MF 治療</span><span class="nav-code">MF-1/MF-2</span></a>
+    <a class="nav-link" href="#mf-anemia"><span>MF 相關貧血處置</span><span class="nav-code">MF-3</span></a>
+    <a class="nav-link" href="#mf-hct"><span>異體造血幹細胞移植考量</span><span class="nav-code">MF-C</span></a>
+
+    <div class="nav-group-title">PV 與 ET 處置</div>
+    <a class="nav-link" href="#pv"><span>真性紅血球增多症 (PV)</span><span class="nav-code">PV-1/2/B</span></a>
+    <a class="nav-link" href="#et"><span>原發性血小板增多症 (ET)</span><span class="nav-code">ET-1/2/3/B</span></a>
+    <a class="nav-link" href="#hu-ri"><span>Hydroxyurea 抗藥與不耐受</span><span class="nav-code">MPN-I</span></a>
+
+    <div class="nav-group-title">進展期與整合照護</div>
+    <a class="nav-link" href="#ap-bp"><span>加速期與芽細胞期 MPN</span><span class="nav-code">MPN-AP/BP</span></a>
+    <a class="nav-link" href="#symptoms"><span>症狀評估與支持性照護</span><span class="nav-code">MPN-E/F</span></a>
+    <a class="nav-link" href="#drug-safety"><span>JAKi / IFN / Anagrelide 須知</span><span class="nav-code">MPN-G</span></a>
+    <a class="nav-link" href="#special"><span>血栓、出血、手術與懷孕</span><span class="nav-code">MPN-H</span></a>
+
+    <div class="nav-group-title">互動工具</div>
+    <a class="nav-link" href="#calculators"><span>預後分數與 MPN-10 計算機</span><span class="nav-code">CALC</span></a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Hero -->
+    <div class="hero">
+      <h1>骨髓增生性腫瘤 (Myeloproliferative Neoplasms, MPN)</h1>
+      <p>NCCN Clinical Practice Guidelines in Oncology — Version 3.2026 (2026 年 9 月 18 日更新) 繁體中文重點精編與臨床速查手冊</p>
+      <div class="hero-meta">
+        <span class="hero-pill">涵蓋 MF / PV / ET / AP-BP</span>
+        <span class="hero-pill">v3.2026 新增 Rusfertide (Cat 1)</span>
+        <span class="hero-pill">ET 二線 RopegIFN (Cat 1)</span>
+        <span class="hero-pill">含互動預後 &amp; MPN-10 計算機</span>
+      </div>
+    </div>
+
+    <!-- Quick Jump Chips -->
+    <div class="quick-bar" aria-label="常用章節快速跳轉">
+      <a class="chip" href="#updates">✨ 2026 新亮點</a>
+      <a class="chip" href="#diagnosis">🔬 WHO/ICC 診斷</a>
+      <a class="chip" href="#mf-tx">💊 MF 治療流程</a>
+      <a class="chip" href="#mf-anemia">🩸 MF 貧血處置</a>
+      <a class="chip" href="#pv">🔴 PV 治療</a>
+      <a class="chip" href="#et">🟡 ET 治療</a>
+      <a class="chip" href="#ap-bp">⚡ AP/BP 進展期</a>
+      <a class="chip" href="#drug-safety">⚠️ JAKi / IFN 安全</a>
+      <a class="chip" href="#special">🤰 懷孕與手術</a>
+      <a class="chip" href="#calculators">🧮 互動計算機</a>
+    </div>
+
+    <!-- 1. UPDATES -->
+    <section class="card" id="updates">
+      <div class="sec-header">
+        <h2>1. Version 1–3.2026 重點更新摘要</h2>
+        <div class="sec-tags"><span class="code-tag">UPDATES</span><span class="badge b-new">2026/09/18</span></div>
+      </div>
+
+      <div class="callout purple">
+        <strong>🔥 v3.2026 &amp; v2.2026 核心新進展 — 皮下注射 Rusfertide 納入 PV 治療 (Category 1)：</strong>
+        <ul>
+          <li><strong>低風險 PV (PV-1)</strong>：若因「頻繁放血」或「無法耐受放血」需要介入，皮下注射 <strong>Rusfertide</strong>（Hepcidin 模擬胜肽，滴定維持 Hct &lt;45%）可<strong>取代或併用</strong>細胞減量治療 <span class="badge b-cat1">Cat 1</span>（依據 Phase III VERIFY 試驗）。</li>
+          <li><strong>高風險 PV (PV-2)</strong>：若 Hct 控制不佳或持續需要放血，可於細胞減量治療之外<strong>加用 Rusfertide</strong> <span class="badge b-cat1">Cat 1</span>。</li>
+          <li><strong>關鍵限制</strong>：當病人另有細胞減量適應症（如控制白血球過多、血小板過多或其他疾病相關症狀）時，<strong>Rusfertide 不可取代細胞減量治療</strong>。</li>
+        </ul>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>診斷與預後更新 (v1.2026)</h4>
+          <ul>
+            <li><strong>MPN-1</strong>：初始分子檢測直接建議使用 <strong>NGS 多基因套組</strong>偵測驅動突變（<em>JAK2, CALR, MPL</em>）與其他致病突變；若骨髓抽吸失敗（dry tap），可用周邊血核型、第二根切片或周邊血 FISH。</li>
+            <li><strong>MPN-2</strong>：Post-PV / Post-ET MF 新增 <strong>MIPSS-70+ v2.0 (Preferred)</strong> 與 <strong>DIPSS-Plus</strong>（與 MYSEC-PM 並列）。</li>
+            <li><strong>MF-C</strong>：異體移植後新增建議監測<strong>驅動突變 MRD 與嵌合率 (Chimerism)</strong>（NEJM 2025）。</li>
+            <li><strong>MF-B</strong>：新增 2024 IWG-MRT/ELN 骨髓纖維化貧血反應修正標準。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>藥物與安全規範更新 (v1.2026)</h4>
+          <ul>
+            <li><strong>MF-3</strong>：合併症狀性脾腫大/全身症狀之 MF 貧血，<strong>Momelotinib</strong> 升級為 <span class="badge b-pref">Preferred</span> <span class="badge b-cat1">Cat 1</span>；Danazol 加註併用 statin 增加橫紋肌溶解風險。</li>
+            <li><strong>ET-3</strong>：ET 二線新增 <strong>Ropeginterferon alfa-2b-njft</strong> <span class="badge b-pref">Preferred</span> <span class="badge b-cat1">Cat 1</span>（SURPASS-ET 試驗）；Anagrelide 移至 Useful in Certain Circumstances。</li>
+            <li><strong>ET-1/2</strong>：Aspirin 一日兩次（BID）可考慮用於難治症狀或心血管高風險者（ARES 2024）。</li>
+            <li><strong>MPN-G</strong>：JAKi 新增停藥症候群、每年皮膚科檢查、每 6 個月血脂、感染警訊；全新獨立頁面規範 Interferons 與 Anagrelide。</li>
+            <li><strong>MPN-H</strong>：擴大適用於所有 MPN；新增 Arterial Thrombosis Score、大手術延長抗凝預防、血管術後 aspirin 與懷孕期 RopegIFN 審慎說明。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. WORKUP -->
+    <section class="card" id="workup">
+      <div class="sec-header">
+        <h2>2. 疑似 MPN 初始檢查與評估 (Workup)</h2>
+        <div class="sec-tags"><span class="code-tag">MPN-1</span><span class="badge b-gray">所有建議除另註外皆為 Cat 2A</span></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>臨床與實驗室基本檢查</h4>
+          <ul>
+            <li><strong>病史與理學檢查 (H&amp;P)</strong>：含<strong>脾臟觸診大小</strong>、血栓/出血史、心血管危險因子、輸血與用藥史。</li>
+            <li><strong>血液學</strong>：CBC + 分類計數 + <strong>周邊血抹片檢查</strong>。</li>
+            <li><strong>生化與鐵代謝</strong>：CMP + 尿酸 (Uric acid) + LDH + LFTs；<strong>Serum EPO</strong>；<strong>鐵質檢查 (Iron studies)</strong>。</li>
+            <li><strong>症狀負荷基線</strong>：使用 <strong>MPN-SAF TSS (MPN-10)</strong> 量化評估。</li>
+            <li><strong>HLA 分型</strong>：若 MF 病人可能考慮異體移植 (Allo-HCT)。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>骨髓、分子與凝血專項檢查</h4>
+          <ul>
+            <li><strong>排除 CML</strong>：FISH 或多重 RT-PCR 檢測 <strong><em>BCR::ABL1</em></strong>（陽性則依 CML 指引處置）。</li>
+            <li><strong>骨髓檢查</strong>：骨髓穿刺（鐵染色）+ 骨髓切片（<strong>Trichrome 與 Reticulin 染色</strong>，區分 pre-PMF、ET、masked PV 與纖維化分級）。</li>
+            <li><strong>細胞遺傳學</strong>：骨髓核型分析（若 dry tap，改用周邊血中期核型、第二根切片或周邊血 MDS/MPN FISH）。</li>
+            <li><strong>分子檢測 (NGS)</strong>：血液或骨髓<strong>多基因 NGS 套組</strong>偵測驅動突變（<em>JAK2, CALR, MPL</em>）及其他致病/預後突變（亦有助確認三陰性病灶之單株性）。</li>
+            <li><strong>肥大細胞</strong>：若骨髓見肥大細胞聚集，轉依 Systemic Mastocytosis 指引評估。</li>
+            <li><strong>後天性類血友病 (Acquired VWS)</strong>：血小板過高且需接受手術、或有不明原因出血者，檢測 <strong>VWFA 抗原</strong>與 <strong>vWF 活性</strong>（必要時加驗 Factor VIII 與 vWF multimers）。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout info">
+        <strong>臨床提醒：</strong>NCCN 強烈建議所有確診 MF、PV 或 ET 的病人轉介或諮詢具備 MPN 專長的醫療中心 (MPN-2A)。
+      </div>
+    </section>
+
+    <!-- 3. DIAGNOSIS -->
+    <section class="card" id="diagnosis">
+      <div class="sec-header">
+        <h2>3. WHO 2022 / ICC 診斷標準與骨髓纖維化分級</h2>
+        <div class="sec-tags"><span class="code-tag">MPN-A</span><span class="code-tag">MPN-B</span><span class="code-tag">MPN-C</span></div>
+      </div>
+
+      <div class="tabs" data-tabgroup="diag-tabs">
+        <button class="tab-btn active" data-tab="tab-pmf">PMF (Pre-PMF &amp; Overt)</button>
+        <button class="tab-btn" data-tab="tab-grade">纖維化分級 (MF-0~3)</button>
+        <button class="tab-btn" data-tab="tab-pv">PV 與 Post-PV MF</button>
+        <button class="tab-btn" data-tab="tab-et">ET 與 Post-ET MF</button>
+      </div>
+
+      <!-- PMF -->
+      <div class="tab-panel active" id="tab-pmf">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:50%">纖維化前期 PMF (Prefibrotic PMF, pre-PMF)</th>
+                <th style="width:50%">明顯纖維化期 PMF (Overt Fibrotic PMF)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>主要標準 (Major — 須全部符合)：</strong>
+                  <ol>
+                    <li>巨核細胞增生與異型性，<strong>無 &gt;Grade 1 網狀纖維化</strong>，伴隨年齡校正後骨髓細胞密度增加、顆粒球增生，常伴紅血球生成減少。</li>
+                    <li>不符合 CML、PV、ET、MDS 或其他特定骨髓腫瘤標準。</li>
+                    <li>具 <em>JAK2, CALR</em> 或 <em>MPL</em> 突變；若三陰性則具其他單株標記（如 <em>ASXL1, EZH2, TET2, IDH1/2, SRSF2, SF3B1</em>）或排除反應性骨髓纖維化。</li>
+                  </ol>
+                </td>
+                <td>
+                  <strong>主要標準 (Major — 須全部符合)：</strong>
+                  <ol>
+                    <li>巨核細胞增生與異型性，伴隨 <strong>Grade 2 或 3 網狀及/或膠原纖維化</strong>。</li>
+                    <li>不符合 CML、PV、ET、MDS 或其他特定骨髓腫瘤標準（若合併單核球增多但有 MPN 病史/突變，仍歸為 MPN 而非 CMML）。</li>
+                    <li>具 <em>JAK2, CALR</em> 或 <em>MPL</em> 突變；若無則具其他單株標記或排除反應性骨髓纖維化。</li>
+                  </ol>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>次要標準 (Minor — 須連續 2 次確認至少 1 項)：</strong>
+                  <ul>
+                    <li>非其他共病所致之貧血</li>
+                    <li>白血球增多 ≥11 × 10⁹/L</li>
+                    <li>臨床觸診及/或影像證實脾腫大</li>
+                    <li>LDH 高於機構正常值上限</li>
+                  </ul>
+                </td>
+                <td>
+                  <strong>次要標準 (Minor — 須連續 2 次確認至少 1 項)：</strong>
+                  <ul>
+                    <li>非其他共病所致之貧血</li>
+                    <li>白血球增多 ≥11 × 10⁹/L</li>
+                    <li>臨床觸診及/或影像證實脾腫大</li>
+                    <li>LDH 高於機構正常值上限</li>
+                    <li><strong>周邊血幼紅幼粒細胞現象 (Leukoerythroblastosis)</strong></li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">
+          <strong>為何必須做骨髓切片區分 true ET 與 pre-PMF？</strong>IWG-MRT 1,104 例研究顯示原診斷 ET 者有 16% 實為 pre-PMF；兩者 15 年預後差異顯著：OS <strong>80% vs 59%</strong>、白血病轉化 <strong>2% vs 12%</strong>、進展為明顯纖維化 <strong>9% vs 17%</strong>。
+        </div>
+      </div>
+
+      <!-- Fibrosis Grading -->
+      <div class="tab-panel" id="tab-grade">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>分級</th>
+                <th>網狀纖維定義 (Reticulin)*</th>
+                <th>膠原纖維型態 (Trichrome 染色)</th>
+                <th>骨硬化 (Osteosclerosis)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>MF-0</strong></td>
+                <td>散在線性網狀纖維，無交錯（正常骨髓）。</td>
+                <td>僅血管周圍膠原（正常）。</td>
+                <td>規則骨小樑（邊界清晰）。</td>
+              </tr>
+              <tr>
+                <td><strong>MF-1</strong></td>
+                <td>鬆散網狀纖維網，多處交錯（尤以血管周圍明顯）。</td>
+                <td>局部骨小樑旁或中央膠原沉積，無連接網。</td>
+                <td>局部骨芽、鉤刺狀或骨小樑旁新骨沉積。</td>
+              </tr>
+              <tr>
+                <td><strong>MF-2</strong></td>
+                <td>瀰漫且緻密網狀纖維增加伴廣泛交錯，偶見局部粗纖維束（多為膠原）及/或局部骨硬化。</td>
+                <td>骨小樑旁或中央膠原沉積伴局部連接網，或廣泛骨小樑旁膠原附著。</td>
+                <td>瀰漫骨小樑旁新骨形成伴骨小樑增厚，偶見局部連結。</td>
+              </tr>
+              <tr>
+                <td><strong>MF-3</strong></td>
+                <td>瀰漫且緻密網狀纖維增加伴廣泛交錯與粗大膠原纖維束，常合併骨硬化。</td>
+                <td>超過 30% 骨髓空間呈瀰漫（完全）膠原連接網。</td>
+                <td>廣泛交織新骨網導致骨髓空間整體閉塞消失。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:13px;color:var(--text-muted)">*僅於造血區評估；若分布不均，以占 <strong>≥30% 骨髓面積</strong>之最高等級為最終分級。Trichrome 染色建議用於區分 MF-1 與 MF-2/MF-3。</p>
+      </div>
+
+      <!-- PV & Post-PV MF -->
+      <div class="tab-panel" id="tab-pv">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:50%">真性紅血球增多症 (PV)</th>
+                <th style="width:50%">Post-PV 骨髓纖維化 (Post-PV MF)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>主要標準 (Major)：</strong>
+                  <ol>
+                    <li>Hb 升高（男 &gt;16.5 g/dL，女 &gt;16.0 g/dL）或 Hct 升高（男 &gt;49%，女 &gt;48%；若無 <em>JAK2</em> 突變，男性可先考慮 &gt;52% 門檻）。</li>
+                    <li>骨髓切片顯示年齡校正後細胞過多與<strong>三系增生 (panmyelosis)</strong>，伴大小不一之成熟多形性巨核細胞。</li>
+                    <li>存在 <strong><em>JAK2</em> V617F 或 <em>JAK2</em> exon 12 突變</strong>。</li>
+                  </ol>
+                  <strong>次要標準 (Minor)：</strong>Serum EPO 低於正常值。<br />
+                  <strong>確診條件：</strong>符合<strong>全部 3 項主要標準</strong>，或<strong>前 2 項主要 + 次要標準</strong>。<br />
+                  <small style="color:var(--text-muted)">*若持續絕對紅血球增多（男 Hb &gt;18.5 / Hct &gt;55.5%，女 Hb &gt;16.5 / Hct &gt;49.5%）且符合 Major 3 + Minor，可免骨髓切片（但切片仍具預後價值）。</small>
+                </td>
+                <td>
+                  <strong>必要標準 (Required — 兩項皆須符合)：</strong>
+                  <ol>
+                    <li>曾確診 WHO 定義之 PV。</li>
+                    <li>骨髓纖維化達 <strong>Grade 2–3</strong>（0–3 分級）。</li>
+                  </ol>
+                  <strong>附加標準 (Additional — 須符合至少 2 項)：</strong>
+                  <ol>
+                    <li>貧血，或在無細胞減量下持續不再需要放血或紅血球減量治療。</li>
+                    <li>Leukoerythroblastosis。</li>
+                    <li>脾腫大進展（較基線增加 &gt;50 mm，或新出現可觸及脾腫大）。</li>
+                    <li>出現以下任 2 項全身症狀：6 個月內體重減輕 &gt;10%、盜汗、不明原因發燒 (&gt;37.5°C)。</li>
+                  </ol>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ET & Post-ET MF -->
+      <div class="tab-panel" id="tab-et">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:50%">原發性血小板增多症 (ET)</th>
+                <th style="width:50%">Post-ET 骨髓纖維化 (Post-ET MF)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>主要標準 (Major)：</strong>
+                  <ol>
+                    <li>血小板計數 <strong>≥450 × 10⁹/L</strong>。</li>
+                    <li>骨髓切片以巨核細胞系增生為主，見大型成熟且核過分葉（hyperlobulated）之巨核細胞增加；顆粒球與紅血球系無顯著左移或增生；極少見輕微 (Grade 1) 網狀纖維增加。</li>
+                    <li>不符合 CML、PV、PMF 或其他骨髓腫瘤 WHO 標準。</li>
+                    <li>存在 <strong><em>JAK2, CALR</em> 或 <em>MPL</em> 突變</strong>。</li>
+                  </ol>
+                  <strong>次要標準 (Minor)：</strong>存在其他單株標記，<strong>或</strong>排除反應性血小板增多症。<br />
+                  <strong>確診條件：</strong>符合<strong>全部 4 項主要標準</strong>，或<strong>前 3 項主要 + 次要標準</strong>。
+                </td>
+                <td>
+                  <strong>必要標準 (Required — 兩項皆須符合)：</strong>
+                  <ol>
+                    <li>曾確診 WHO 定義之 ET。</li>
+                    <li>骨髓纖維化達 <strong>Grade 2–3</strong>（0–3 分級）。</li>
+                  </ol>
+                  <strong>附加標準 (Additional — 須符合至少 2 項)：</strong>
+                  <ol>
+                    <li>貧血且 Hb 較基線下降 &gt;2 g/dL。</li>
+                    <li>Leukoerythroblastosis。</li>
+                    <li>脾腫大進展（觸診或影像增加 &gt;50 mm，或新出現可觸及脾腫大）。</li>
+                    <li>LDH 高於參考值上限。</li>
+                    <li>出現以下任 2 項全身症狀：6 個月內體重減輕 &gt;10%、盜汗、不明原因發燒 (&gt;37.5°C)。</li>
+                  </ol>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MUTATIONS -->
+    <section class="card" id="mutations">
+      <div class="sec-header">
+        <h2>4. 基因突變分布與預後意義</h2>
+        <div class="sec-tags"><span class="code-tag">MPN-D</span></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>突變基因</th>
+              <th>分類 / 發生率</th>
+              <th>臨床與預後意義（須搭配預後評分系統判讀）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><em>JAK2</em> V617F</strong></td>
+              <td>Driver<br /><small>PV &gt;95%, ET/MF ~60%</small></td>
+              <td>MF 中等預後；相較 <em>CALR</em> type 1 <strong>血栓風險較高</strong>。PV 中高 VAF 與纖維化轉化相關。</td>
+            </tr>
+            <tr>
+              <td><strong><em>JAK2</em> exon 12</strong></td>
+              <td>Driver<br /><small>PV 2–3%</small></td>
+              <td>初診時常表現較高 Hb、較低 WBC/Plt；血栓、轉化與死亡風險與 V617F 相當。</td>
+            </tr>
+            <tr>
+              <td><strong><em>MPL</em> W515L/K</strong></td>
+              <td>Driver<br /><small>MF 5–8%, ET 1–4%</small></td>
+              <td>MF 中等預後、血栓風險較 <em>CALR</em> type 1 高；初診較常伴低 Hb 與輸血依賴。</td>
+            </tr>
+            <tr>
+              <td><strong><em>CALR</em> type 1</strong><br /><small>(52-bp del)</small></td>
+              <td>Driver<br /><small>ET/MF 20–35% (MF 較多)</small></td>
+              <td><strong>預後最佳</strong>：相較 <em>JAK2</em>、<em>CALR</em> type 2 與三陰性 PMF，有顯著較佳 OS 與較低血栓風險；Allo-HCT 後 OS 較佳、NRM 較低。</td>
+            </tr>
+            <tr>
+              <td><strong><em>CALR</em> type 2</strong><br /><small>(5-bp ins)</small></td>
+              <td>Driver<br /><small>ET 較多</small></td>
+              <td>MF 中 OS 較 <em>CALR</em> type 1 差、白血病轉化率較高（與 <em>JAK2</em> 相近）。</td>
+            </tr>
+            <tr>
+              <td><strong>Triple-negative</strong></td>
+              <td>無三大驅動突變 (~10%)</td>
+              <td><strong>預後最差</strong>：OS（中位 ~3 年）與無白血病存活 (LFS) 皆顯著較差，10 年白血病轉化率高 (34%)。</td>
+            </tr>
+            <tr>
+              <td><strong><em>ASXL1</em></strong> <span class="badge b-warn">HMR</span></td>
+              <td>體細胞突變</td>
+              <td>獨立於 IPSS/DIPSS-Plus 預測<strong>較差 OS 與 LFS</strong>（移植後 LFS 亦較差）。<strong><em>CALR-/ASXL1+</em></strong> 為最不利組合（中位 OS 2.3 年）。</td>
+            </tr>
+            <tr>
+              <td><strong><em>EZH2 / SRSF2 / IDH1/2</em></strong> <span class="badge b-warn">HMR</span></td>
+              <td>體細胞突變</td>
+              <td><em>EZH2</em>：較差 OS；<em>SRSF2</em>：較差 OS 與 LFS（亦為 PV/ET 不良因子）；<em>IDH1/2</em>：較差 LFS 與移植後較低 PFS。</td>
+            </tr>
+            <tr>
+              <td><strong><em>U2AF1</em> (Q157)</strong> <span class="badge b-warn">HMR</span></td>
+              <td>剪接因子突變</td>
+              <td>納入 MIPSS-70+ v2.0；<em>U2AF1</em> Q157 較 S34 或未突變者 OS 差，移植後 OS 亦較差。</td>
+            </tr>
+            <tr>
+              <td><strong><em>TP53 / RAS</em></strong></td>
+              <td>高風險突變</td>
+              <td><em>TP53</em> 顯著增加<strong>白血病轉化</strong>風險；<em>RAS</em> 路徑突變與較差 OS 相關。</td>
+            </tr>
+            <tr>
+              <td><strong><em>DNMT3A / CBL</em></strong></td>
+              <td>其他體細胞突變</td>
+              <td>與 <strong>Allo-HCT 後較差 OS</strong> 相關。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout danger">
+        <strong>突變累積效應：</strong>帶有 <strong>≥2 個 HMR 突變</strong>者預後急遽惡化（PMF 中位 OS 僅 <strong>3 年</strong>，對比 1 個 HMR 為 7 年、無 HMR 為 12 年；LFS 分別為 7、11、27 年）。
+      </div>
+    </section>
+
+    <!-- 5. MF RISK STRATIFICATION -->
+    <section class="card" id="mf-risk">
+      <div class="sec-header">
+        <h2>5. 骨髓纖維化 (MF) 風險分層模型</h2>
+        <div class="sec-tags"><span class="code-tag">MPN-2</span><span class="code-tag">MF-A 1–5</span></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>低風險 (Lower-Risk → MF-1) 門檻</h4>
+          <ul>
+            <li><strong>MIPSS-70</strong>：≤3 分 <span class="badge b-pref">PMF Preferred</span></li>
+            <li><strong>MIPSS-70+ v2.0</strong>：≤3 分 <span class="badge b-pref">PMF &amp; Post-PV/ET Preferred</span></li>
+            <li><strong>DIPSS-Plus</strong>：≤1 分（無分子檢測時）</li>
+            <li><strong>DIPSS</strong>：≤2 分（無近期核型時）</li>
+            <li><strong>MYSEC-PM</strong>：&lt;14 分（Post-PV/ET MF）</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>高風險 (Higher-Risk → MF-2) 門檻</h4>
+          <ul>
+            <li><strong>MIPSS-70</strong>：≥4 分</li>
+            <li><strong>MIPSS-70+ v2.0</strong>：≥4 分</li>
+            <li><strong>DIPSS-Plus</strong>：&gt;1 分（Int-2 / High）</li>
+            <li><strong>DIPSS</strong>：&gt;2 分（Int-2 / High）</li>
+            <li><strong>MYSEC-PM</strong>：≥14 分（Int-2 / High）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>評分系統</th>
+              <th>適用對象</th>
+              <th>納入變項與給分</th>
+              <th>分層與中位 OS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>MIPSS-70+ v2.0</strong><br /><span class="badge b-pref">Preferred</span></td>
+              <td>PMF、Post-PV/ET MF (各年齡)</td>
+              <td>重度貧血（女&lt;8 / 男&lt;9）<strong>2分</strong>、中度貧血（女8–9.9 / 男9–10.9）<strong>1分</strong>、周邊血 blasts ≥2% <strong>1分</strong>、全身症狀 <strong>2分</strong>、無 <em>CALR</em> type 1 <strong>2分</strong>、1 個 HMR（<em>ASXL1, EZH2, SRSF2, U2AF1 Q157, IDH1/2</em>）<strong>2分</strong>、≥2 個 HMR <strong>3分</strong>、不良核型 <strong>3分</strong>、VHR 核型 <strong>4分</strong>。</td>
+              <td>Very low (0): NR<br />Low (1–2): 10.3y<br />Int (3–4): 7.0y<br />High (5–8): 3.5y<br />Very high (≥9): 1.8y</td>
+            </tr>
+            <tr>
+              <td><strong>MIPSS-70</strong><br /><span class="badge b-pref">Preferred</span></td>
+              <td>PMF (≤70 歲，無核型)</td>
+              <td>Hb &lt;10 (<strong>1</strong>)、WBC &gt;25 (<strong>2</strong>)、Plt &lt;100 (<strong>2</strong>)、blasts ≥2% (<strong>1</strong>)、纖維化 ≥MF-2 (<strong>1</strong>)、全身症狀 (<strong>1</strong>)、無 <em>CALR</em> type 1 (<strong>1</strong>)、1 個 HMR（<em>ASXL1, EZH2, SRSF2, IDH1/2</em>）(<strong>1</strong>)、≥2 個 HMR (<strong>2</strong>)。</td>
+              <td>Low (0–1): 28y<br />Int (2–4): 7y<br />High (≥5): 2y</td>
+            </tr>
+            <tr>
+              <td><strong>DIPSS</strong></td>
+              <td>PMF（無近期核型）</td>
+              <td>年齡 &gt;65 (<strong>1</strong>)、WBC &gt;25 (<strong>1</strong>)、Hb &lt;10 (<strong>2</strong>)、blasts ≥1% (<strong>1</strong>)、全身症狀 (<strong>1</strong>)。</td>
+              <td>Low (0): NR | Int-1 (1–2): 14y<br />Int-2 (3–4): 4y | High (5–6): 1.5y</td>
+            </tr>
+            <tr>
+              <td><strong>DIPSS-Plus</strong></td>
+              <td>PMF、Post-PV/ET MF（無 NGS）</td>
+              <td>DIPSS 低=0 / Int-1=1 / Int-2=2 / 高=3，再加 Plt &lt;100 (<strong>1</strong>)、輸血需求 (<strong>1</strong>)、不良核型 (<strong>1</strong>：複雜核型或 +8, -7/7q-, i(17q), -5/5q-, 12p-, inv(3), 11q23)。</td>
+              <td>Low (0): 15.4y | Int-1 (1): 6.5y<br />Int-2 (2–3): 2.9y | High (4–6): 1.3y</td>
+            </tr>
+            <tr>
+              <td><strong>MYSEC-PM</strong></td>
+              <td>Post-PV / Post-ET MF</td>
+              <td>診斷年齡 × <strong>0.15</strong>、Hb &lt;11 (<strong>2</strong>)、blasts ≥3% (<strong>2</strong>)、無 <em>CALR</em> type 1 (<strong>2</strong>)、Plt &lt;150 (<strong>1</strong>)、全身症狀 (<strong>1</strong>)。</td>
+              <td>Low (&lt;11): NR | Int-1 (11–13.9): 9y<br />Int-2 (14–15.9): 4y | High (≥16): 2y</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted)">
+        <strong>MIPSS-70+ v2.0 核型定義</strong>：<strong>VHR 核型</strong>＝單一或多重 -7, i(17q), inv(3)/3q21, 12p-/12p11.2, 11q-/11q23 或非 +8/+9 之體染色體三體（如 +21, +19）。<strong>不良核型</strong>＝除正常核型、單一 20q-、13q-、+9、第 1 號染色體轉位/重複或 -Y/性染色體異常以外之異常核型。
+      </p>
+    </section>
+
+    <!-- 6. MF TREATMENT -->
+    <section class="card" id="mf-tx">
+      <div class="sec-header">
+        <h2>6. 骨髓纖維化 (MF) 治療流程：低風險與高風險</h2>
+        <div class="sec-tags"><span class="code-tag">MF-1</span><span class="code-tag">MF-2</span><span class="code-tag">MF-B</span></div>
+      </div>
+
+      <p>PMF 與 Post-PV / Post-ET MF 之治療原則相同。治療前須先評估血球計數與 <strong>MPN-SAF TSS (MPN-10)</strong> 症狀負荷。</p>
+
+      <h3>A. 低風險 MF 治療 (MF-1)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>臨床表現</th>
+              <th>初始建議治療</th>
+              <th>追蹤與後續調整</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>無症狀 (Asymptomatic)</strong></td>
+              <td>臨床試驗 <strong>或</strong> 觀察 (Observation)。</td>
+              <td>每 3–6 個月以 MPN-SAF TSS 追蹤疾病進展徵象；出現症狀則轉入下方有症狀流程。</td>
+            </tr>
+            <tr>
+              <td><strong>有症狀 (Symptomatic)</strong></td>
+              <td>
+                臨床試驗；或 <em>Useful in Certain Circumstances</em>：
+                <ul>
+                  <li><strong>Ruxolitinib</strong>（JAK1/2 抑制劑）</li>
+                  <li><strong>Peginterferon alfa-2a</strong>（若缺藥可用 ropeginterferon alfa-2b-njft）</li>
+                  <li><strong>Hydroxyurea</strong>（若降細胞治療對症狀有益，如血小板/白血球過高）</li>
+                  <li><strong>Pacritinib</strong>（若 <strong>Plt &lt;50 × 10⁹/L</strong>）</li>
+                  <li><strong>Momelotinib</strong> <span class="badge b-cat2b">Cat 2B</span></li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>有反應</strong>：續用並追蹤進展（Ruxolitinib 可用 <strong>RR6 模型</strong>於 6 個月評估）。</li>
+                  <li><strong>不耐受 / 無反應 / 失反應</strong>：換用未曾使用之其他選項（Momelotinib 為 Cat 2B）；若有貧血見 <strong>MF-3</strong>。</li>
+                  <li><strong>疾病進展</strong>：轉高風險 MF (MF-2) 或加速/芽細胞期 (MPN-AP/BP-1)。</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>合併貧血</strong></td>
+              <td colspan="2">見 <strong>MF-3（MF 相關貧血處置）</strong>。低風險但具低血小板、複雜核型、輸血依賴貧血或高風險突變者，仍應評估 <strong>Allo-HCT</strong>。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>B. 高風險 MF 治療 (MF-2)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>血小板 / 移植資格</th>
+              <th>初始建議治療</th>
+              <th>不耐受 / 無反應 / 失反應</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>移植候選人</strong><br /><small>(不論 Plt 數值)</small></td>
+              <td><strong>異體造血幹細胞移植 (Allogeneic HCT)</strong>（參見 <strong>MF-C</strong>，移植前若有脾腫大/症狀建議先用 JAKi 至少 2 個月）。</td>
+              <td>依移植專科評估；若進展至 AP/BP 見 MPN-AP/BP-1。</td>
+            </tr>
+            <tr>
+              <td><strong>非移植候選人 / 暫無法移植</strong><br />且 <strong>Plt &lt;50 × 10⁹/L</strong></td>
+              <td>
+                <ul>
+                  <li>臨床試驗</li>
+                  <li><span class="badge b-pref">Preferred</span> <strong>Pacritinib</strong> <span class="badge b-cat1">Cat 1</span>（JAK2/FLT3/IRAK1 抑制劑，PERSIST-2/PAC203）</li>
+                  <li><em>Other Recommended</em>：<strong>Momelotinib</strong> <span class="badge b-cat2b">Cat 2B</span></li>
+                </ul>
+              </td>
+              <td>臨床試驗或換用未用過之 JAKi；合併貧血見 MF-3；疾病進展見 MPN-AP/BP-1。</td>
+            </tr>
+            <tr>
+              <td><strong>非移植候選人 / 暫無法移植</strong><br />且 <strong>Plt ≥50 × 10⁹/L</strong><br /><small>(有症狀性脾腫大或全身症狀)</small></td>
+              <td>
+                <ul>
+                  <li>臨床試驗</li>
+                  <li><strong>Ruxolitinib</strong> <span class="badge b-cat1">Cat 1</span>（COMFORT-I/II：起始劑量依 Plt 決定，Plt &gt;200 用 20 mg BID；100–200 用 15 mg BID；50–100 可考慮 5–10 mg BID）</li>
+                  <li><strong>Fedratinib</strong> <span class="badge b-cat1">Cat 1</span>（JAKARTA 400 mg QD；須監測 Thiamine 防 Wernicke 腦病變）</li>
+                  <li><strong>Momelotinib</strong>（200 mg QD，合併貧血者更佳）</li>
+                  <li><strong>Pacritinib</strong> <span class="badge b-cat2b">Cat 2B</span></li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>臨床試驗</li>
+                  <li><strong>換用未曾使用之其他 JAK 抑制劑</strong>（Fedratinib 於 FREEDOM2/JAKARTA-2 具二線實證；Pacritinib 為 Cat 2B）</li>
+                  <li>合併貧血見 <strong>MF-3</strong>；進展見 <strong>MPN-AP/BP-1</strong></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <strong>療效評估與 RR6 模型 (MF-1/2, MF-B)：</strong>2013 IWG-MRT/ELN 標準（脾體積縮小 ≥35%、TSS 下降 ≥50%）與 2024 貧血反應標準主要用於臨床試驗。實務上即使未達門檻，只要症狀有臨床意義的改善仍建議續用 JAKi。使用 Ruxolitinib 者可用 <strong>RR6 模型</strong>（依第 0/3/6 個月劑量 &lt;20 mg BID、第 3/6 個月脾長縮小 ≤30%、輸血需求）預測 OS 並及早識別須換藥或移植者。
+      </div>
+    </section>
+
+    <!-- 7. MF ANEMIA -->
+    <section class="card" id="mf-anemia">
+      <div class="sec-header">
+        <h2>7. MF 相關貧血處置 (Management of MF-Associated Anemia)</h2>
+        <div class="sec-tags"><span class="code-tag">MF-3</span><span class="badge b-new">Momelotinib Cat 1</span></div>
+      </div>
+
+      <p><strong>第一步</strong>：務必先排除並治療其他可逆性貧血原因（<strong>出血、營養缺乏 [鐵/B12/葉酸]、溶血</strong>）。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>臨床情境</th>
+              <th>首選 (Preferred)</th>
+              <th>其他建議 (Other Recommended)</th>
+              <th>特定情境適用 (Certain Circumstances)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. 合併持續症狀性脾腫大及/或全身症狀</strong></td>
+              <td>
+                • 臨床試驗<br />
+                • <strong>Momelotinib</strong> <span class="badge b-cat1">Cat 1</span> <span class="badge b-new">v1.2026 升級</span>（JAK1/2 + ACVR1/ALK2 抑制劑，MOMENTUM / SIMPLIFY-1）
+              </td>
+              <td>
+                • <strong>Pacritinib</strong>（具 ACVR1 抑制與貧血獲益）<br />
+                • <strong>Ruxolitinib 併用</strong>：
+                <br />&nbsp;&nbsp;– Luspatercept-aamt
+                <br />&nbsp;&nbsp;– Danazol* <span class="badge b-cat2b">Cat 2B</span>
+                <br />&nbsp;&nbsp;– ESAs (若 EPO &lt;500 mU/mL) <span class="badge b-cat2b">Cat 2B</span>
+              </td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>2. 無脾腫大或全身症狀</strong></td>
+              <td>• 臨床試驗</td>
+              <td>
+                • <strong>Danazol</strong>*<br />
+                • <strong>ESAs</strong>（epoetin alfa / darbepoetin alfa，限 <strong>EPO &lt;500 mU/mL</strong>；對輸血依賴者效果較差）<br />
+                • <strong>Luspatercept-aamt</strong><br />
+                • <strong>Momelotinib</strong> <span class="badge b-cat2b">Cat 2B</span><br />
+                • <strong>Pacritinib</strong> <span class="badge b-cat2b">Cat 2B</span>
+              </td>
+              <td>• <strong>Lenalidomide + Prednisone</strong>（限 <strong>del(5q)</strong>，<span class="badge b-cat2b">Cat 2B</span>；合併起始後 3 個月內漸減 prednisone）</td>
+            </tr>
+            <tr>
+              <td><strong>3. 目前 JAKi 已良好控制脾腫大與全身症狀</strong></td>
+              <td>• 臨床試驗</td>
+              <td>
+                • <strong>續用原 JAKi 並加用</strong>：
+                <br />&nbsp;&nbsp;– ESAs (若 EPO &lt;500 mU/mL)
+                <br />&nbsp;&nbsp;– Luspatercept-aamt
+                <br />&nbsp;&nbsp;– Danazol* <span class="badge b-cat2b">Cat 2B</span>
+              </td>
+              <td>
+                • 換用 <strong>Momelotinib</strong><br />
+                • 換用 <strong>Pacritinib</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <strong>*Danazol 安全提醒 (v1.2026 更新)：</strong>屬雄性素，禁忌用於雄性素依賴性腫瘤；建議<strong>攝護腺癌篩檢</strong>與定期監測<strong>肝功能 (LFTs)</strong>；<strong>併用 Statin 類藥物須特別謹慎，因會增加橫紋肌溶解症 (rhabdomyolysis) 風險</strong>。
+      </div>
+    </section>
+
+    <!-- 8. ALLO-HCT -->
+    <section class="card" id="mf-hct">
+      <div class="sec-header">
+        <h2>8. 異體造血幹細胞移植特殊考量 (Allogeneic HCT)</h2>
+        <div class="sec-tags"><span class="code-tag">MF-C</span><span class="badge b-new">移植後 MRD 監測</span></div>
+      </div>
+
+      <p>異體造血幹細胞移植是目前<strong>唯一具治癒潛力</strong>的 MF 治療方式。</p>
+      <div class="grid-2">
+        <div class="box">
+          <h4>轉介與適應症</h4>
+          <ul>
+            <li><strong>早期轉介</strong>：所有 <strong>DIPSS-Plus Int-1 或 MIPSS-Intermediate 以上</strong>皆建議轉介移植專家評估。</li>
+            <li><strong>明確建議移植</strong>：DIPSS-Plus / MYSEC <strong>Int-2 或 High</strong>；MIPSS-70 / MIPSS-70+ <strong>High / Very High</strong>。</li>
+            <li><strong>選擇性考量</strong>：RBC 輸血依賴、高風險突變（<em>ASXL1, RAS, TP53</em>）、或對 JAKi 失去反應。</li>
+            <li><strong>病人篩選與 MTSS</strong>：綜合評估年齡、體能狀態、共病、心理社會與照顧者；<strong>MTSS（Myelofibrosis Transplant Scoring System）</strong>有助預測移植後存活（Low/Int 風險為最佳候選）。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>移植前準備、捐贈者與移植後監測</h4>
+          <ul>
+            <li><strong>移植前 JAKi</strong>：有脾腫大或全身症狀者，即使已符合移植條件，仍建議先使用 JAKi <strong>至少 2 個月</strong>；於調理前或調理期間漸進減量，並於幹細胞輸注前停藥。</li>
+            <li><strong>難治巨大脾腫大</strong>：對 JAKi 無反應者，移植前可考慮脾臟放療、脾動脈栓塞或脾臟切除。</li>
+            <li><strong>周邊血 Blasts &gt;10%</strong>：移植前可考慮 Azacitidine ± JAKi 降低芽細胞比例。</li>
+            <li><strong>捐贈者選擇</strong>：HLA 全合手足 (MSD) 為首選；HLA 全合非親屬 (MUD)、7/8 相合非親屬或半相合 (Haplo) 亦適當。注意 MPN 移植後肝竇阻塞症候群 (SOS) 風險較高。</li>
+            <li><strong>移植後監測 <span class="badge b-new">v1.2026 新增</span></strong>：建議追蹤<strong>驅動突變 MRD 與嵌合率 (Chimerism)</strong>（NEJM 2025：移植後第 30 天突變清除者 1 年復發率 6% vs 21%，6 年 OS 74% vs 60%）。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. PV -->
+    <section class="card" id="pv">
+      <div class="sec-header">
+        <h2>9. 真性紅血球增多症 (Polycythemia Vera, PV)</h2>
+        <div class="sec-tags"><span class="code-tag">PV-1</span><span class="code-tag">PV-2</span><span class="code-tag">PV-B</span><span class="badge b-new">Rusfertide Cat 1</span></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>血栓風險分層 (MPN-2)</h4>
+          <ul>
+            <li><strong>低風險 (Low-risk, PV-1)</strong>：年齡 <strong>&lt;60 歲</strong> 且 <strong>無血栓病史</strong>。</li>
+            <li><strong>高風險 (High-risk, PV-2)</strong>：年齡 <strong>≥60 歲</strong> 及/或 <strong>有血栓病史</strong>。</li>
+          </ul>
+          <p style="margin:6px 0 0;font-size:13.5px"><strong>全體 PV 基礎治療：</strong>控制心血管危險因子 + <strong>Aspirin 81–100 mg/day</strong>（難治症狀可 BID）+ <strong>放血維持 Hct &lt;45%</strong>（CYTO-PV 試驗；部分症狀進展者可個別化設更低門檻）。</p>
+        </div>
+        <div class="box">
+          <h4>整體存活預後分層 — MIPSS-PV (PV-B)</h4>
+          <ul>
+            <li>血栓病史：<strong>1 分</strong> ｜ WBC ≥15 × 10⁹/L：<strong>1 分</strong></li>
+            <li>年齡 &gt;67 歲：<strong>2 分</strong> ｜ 不良突變 (<strong><em>SRSF2</em></strong>)：<strong>3 分</strong></li>
+            <li><strong>分層</strong>：Low (0–1 分, OS 24y) ｜ Int (2–3 分, OS 13.1y) ｜ High (≥4 分, OS 3.2y)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>風險族群 / 階段</th>
+              <th>治療建議</th>
+              <th>關鍵臨床細節與 2026 更新</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>低風險 PV (PV-1)</strong><br />無細胞減量適應症</td>
+              <td>基礎治療（心血管控制 + Aspirin + 放血 Hct &lt;45%）。<strong>初始不建議細胞減量治療</strong>。</td>
+              <td>定期追蹤新血栓/出血、MPN-SAF TSS 與是否出現細胞減量適應症。</td>
+            </tr>
+            <tr>
+              <td><strong>低風險 PV (PV-1)</strong><br />出現細胞減量適應症*</td>
+              <td>
+                • <span class="badge b-pref">Preferred</span> 臨床試驗、<strong>Ropeginterferon alfa-2b-njft</strong><br />
+                • <em>Other Recommended</em>：Hydroxyurea、Peginterferon alfa-2a（年輕或懷孕適用）
+              </td>
+              <td>
+                <span class="badge b-new">v3.2026</span> 若適應症為<strong>頻繁放血或放血不耐受</strong>，皮下 <strong>Rusfertide</strong> (Hct &lt;45%) 可取代或併用細胞減量 <span class="badge b-cat1">Cat 1</span>（但若有 WBC/Plt 過高等適應症不可取代）。
+              </td>
+            </tr>
+            <tr>
+              <td><strong>高風險 PV (PV-2)</strong><br />初始治療</td>
+              <td>
+                基礎治療 <strong>＋ 細胞減量治療</strong>：<br />
+                • <span class="badge b-pref">Preferred</span> <strong>Hydroxyurea</strong>、<strong>Ropeginterferon alfa-2b-njft</strong><br />
+                • <em>Other Recommended</em>：Peginterferon alfa-2a<br />
+                • <em>Certain Circumstances</em>：Ruxolitinib
+              </td>
+              <td>PROUD-PV/CONTINUATION-PV 6 年追蹤顯示 RopegIFN 較高 CHR (54.5% vs 34.9%)、分子反應 (66% vs 19.4%) 與 EFS (0.94 vs 0.82)。</td>
+            </tr>
+            <tr>
+              <td><strong>高風險 PV (PV-2)</strong><br />反應不佳 / 失反應 / HU 抗藥或不耐受</td>
+              <td>
+                • <span class="badge b-pref">Preferred</span> 臨床試驗、<strong>Ruxolitinib</strong> <span class="badge b-cat1">Cat 1 (HU-R/I)</span><br />
+                • <em>Other Recommended</em>：未使用過之 Hydroxyurea、Peginterferon alfa-2a、Ropeginterferon alfa-2b-njft
+              </td>
+              <td>
+                RESPONSE / RESPONSE-2 / MAJIC-PV 證實 Ruxolitinib 優於 BAT。<br />
+                <span class="badge b-new">v3.2026</span> 若 Hct 控制不佳或持續需放血，可<strong>加用皮下 Rusfertide</strong> <span class="badge b-cat1">Cat 1</span>。進展為 Post-PV MF 見 MPN-2；AP/BP 見 MPN-AP/BP-1。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted)">
+        <strong>*PV 啟動或更換細胞減量治療之潛在適應症</strong>：對先前藥物抗藥或不耐受 (MPN-I)、新血栓或疾病相關大出血、頻繁放血或不耐受放血、脾腫大、進行性血小板增多及/或白血球增多、疾病相關症狀（搔癢、盜汗、疲倦）。註：目前尚無實證設定細胞減量後之特定 WBC/Plt 目標值，以臨床症狀與血栓預防為主。
+      </p>
+    </section>
+
+    <!-- 10. ET -->
+    <section class="card" id="et">
+      <div class="sec-header">
+        <h2>10. 原發性血小板增多症 (Essential Thrombocythemia, ET)</h2>
+        <div class="sec-tags"><span class="code-tag">ET-1</span><span class="code-tag">ET-2</span><span class="code-tag">ET-3</span><span class="code-tag">ET-B</span><span class="badge b-new">二線 RopegIFN Cat 1</span></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Revised IPSET-Thrombosis 風險分層</th>
+              <th>定義</th>
+              <th>初始治療建議</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>極低風險 (Very-low-risk)</strong></td>
+              <td>年齡 ≤60 歲、<strong>無 <em>JAK2</em> 突變</strong>、無血栓史</td>
+              <td>控制心血管風險；<strong>僅在有血管舒縮/微血管症狀時</strong>給予 Aspirin (81–100 mg/day)（觀察亦適當，低風險 <em>CALR</em> 突變者 Aspirin 未必獲益且可能增出血）。</td>
+            </tr>
+            <tr>
+              <td><strong>低風險 (Low-risk)</strong></td>
+              <td>年齡 ≤60 歲、<strong>有 <em>JAK2</em> 突變</strong>、無血栓史</td>
+              <td>控制心血管風險 + <strong>Aspirin 81–100 mg/day</strong>（難治症狀或具心血管風險者可考慮 <strong>BID</strong>）。</td>
+            </tr>
+            <tr>
+              <td><strong>中風險 (Intermediate-risk)</strong></td>
+              <td>年齡 &gt;60 歲、<strong>無 <em>JAK2</em> 突變</strong>、無血栓史</td>
+              <td>控制心血管風險 + <strong>Aspirin 81–100 mg/day</strong>（若出現適應症則啟動細胞減量）。</td>
+            </tr>
+            <tr>
+              <td><strong>高風險 (High-risk, ET-2)</strong></td>
+              <td><strong>任何年齡有血栓史</strong>，或 <strong>年齡 &gt;60 歲且有 <em>JAK2</em> 突變</strong></td>
+              <td>
+                控制心血管風險 + Aspirin + <strong>初始細胞減量</strong>：<br />
+                • <span class="badge b-pref">Preferred</span> 臨床試驗、<strong>Hydroxyurea</strong><br />
+                • <em>Other Recommended</em>：Peginterferon alfa-2a（年輕、懷孕或拒用 HU 者）、Anagrelide
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>ET 二線 / 換藥治療 (ET-3)</h4>
+          <p style="font-size:13.5px;margin-top:0"><strong>適應症</strong>：對 HU/PegIFN/Anagrelide 不耐受或抗藥、新血栓/後天 VWS/大出血、脾腫大、血小板/白血球過高、疾病症狀、對 Aspirin 無效之血管舒縮症狀（頭痛、胸痛、紅斑性肢痛症）。<small>（啟動前若懷疑進展至 MF，須先做骨髓切片排除！）</small></p>
+          <ul>
+            <li><span class="badge b-pref">Preferred</span> 臨床試驗、<strong>Ropeginterferon alfa-2b-njft</strong> <span class="badge b-cat1">Cat 1</span> <span class="badge b-new">SURPASS-ET 2025</span>（優於 Anagrelide：43% vs 6% 達持久修正 ELN 反應）、未用過之 Hydroxyurea。</li>
+            <li><em>Other Recommended</em>：未用過之 Peginterferon alfa-2a。</li>
+            <li><em>Useful in Certain Circumstances</em>：未用過之 <strong>Anagrelide</strong>、<strong>血小板分離術 (Plateletpheresis)</strong>（緊急情境如嚴重神經併發症）、<strong>Ruxolitinib</strong>（改善症狀）。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>整體存活預後分層 — MIPSS-ET (ET-B)</h4>
+          <ul>
+            <li>男性：<strong>1 分</strong> ｜ WBC ≥11 × 10⁹/L：<strong>1 分</strong></li>
+            <li>不良突變（<strong><em>SRSF2, SF3B1, U2AF1, TP53</em></strong>）：<strong>2 分</strong></li>
+            <li>年齡 &gt;60 歲：<strong>4 分</strong></li>
+            <li><strong>分層</strong>：Low (0–1 分, OS 34.4y) ｜ Int (2–5 分, OS 14.1y) ｜ High (≥6 分, OS 7.9y)</li>
+          </ul>
+          <div class="callout warn" style="margin:10px 0 0">
+            <strong>Aspirin 警訊：</strong>ET 合併 <strong>Acquired VWS</strong>（發生率 11–17%，常發生於極端血小板增多 &gt;1000×10⁹/L）時須慎用或暫停 Aspirin 以免大出血！
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. HU RESISTANCE/INTOLERANCE -->
+    <section class="card" id="hu-ri">
+      <div class="sec-header">
+        <h2>11. Hydroxyurea 抗藥性與不耐受定義 (ELN 標準)</h2>
+        <div class="sec-tags"><span class="code-tag">MPN-I</span></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:50%">Polycythemia Vera (PV) — 符合任 1 項</th>
+              <th style="width:50%">Essential Thrombocythemia (ET) — 符合任 1 項</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ol>
+                  <li>使用 HU <strong>≥2 g/天 達 3 個月</strong>後仍需放血才能維持 Hct &lt;45%。</li>
+                  <li>使用 HU <strong>≥2 g/天 達 3 個月</strong>後仍未控制骨髓增生（Plt &gt;400 × 10⁹/L <strong>且</strong> WBC &gt;10 × 10⁹/L）。</li>
+                  <li>使用 HU <strong>≥2 g/天 達 3 個月</strong>後，巨大脾腫大（肋下 &gt;10 cm）觸診未能縮小 &gt;50%，或無法完全緩解脾腫大相關症狀。</li>
+                  <li>在維持完全或部分臨床血液學反應所需之<strong>最低 HU 劑量</strong>下，出現 <strong>ANC &lt;1.0</strong> 或 <strong>Plt &lt;100</strong> 或 <strong>Hb &lt;10 g/dL</strong>。</li>
+                  <li>任何劑量下出現<strong>下肢潰瘍</strong>或其他無法接受之非血液學毒性（黏膜皮膚病變、腸胃症狀、肺炎或發燒）。</li>
+                </ol>
+              </td>
+              <td>
+                <ol>
+                  <li>使用 HU <strong>≥2 g/天 達 3 個月</strong>（體重 &gt;80 kg 者為 <strong>2.5 g/天</strong>）後，Plt 仍 <strong>&gt;600 × 10⁹/L</strong>。</li>
+                  <li>任何劑量下出現 <strong>Plt &gt;400 × 10⁹/L 且 WBC &lt;2.5 × 10⁹/L</strong>。</li>
+                  <li>任何劑量下出現 <strong>Plt &gt;400 × 10⁹/L 且 Hb &lt;10 g/dL</strong>。</li>
+                  <li>任何劑量下出現<strong>下肢潰瘍</strong>或其他無法接受之黏膜皮膚毒性。</li>
+                  <li>出現 <strong>HU 相關發燒</strong>。</li>
+                </ol>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 12. AP/BP -->
+    <section class="card" id="ap-bp">
+      <div class="sec-header">
+        <h2>12. 加速期 / 芽細胞期 MPN (Accelerated / Blast Phase)</h2>
+        <div class="sec-tags"><span class="code-tag">MPN-AP/BP-1</span></div>
+      </div>
+
+      <div class="callout danger">
+        <strong>定義與預後：</strong><strong>加速期 (MPN-AP)</strong>＝周邊血或骨髓 blasts <strong>10%–19%</strong>；<strong>芽細胞期 (MPN-BP)</strong>＝blasts <strong>≥20%</strong> 或出現<strong>骨髓肉瘤 (myeloid sarcoma)</strong>。傳統化療反應率低且毒性高，<strong>Allo-HCT 是唯一具長期疾病控制之治癒機會</strong>，應<strong>儘早轉介移植團隊</strong>。
+      </div>
+
+      <div class="grid-3">
+        <div class="box">
+          <h4>必要檢查 (Workup)</h4>
+          <ul>
+            <li>骨髓穿刺 + 切片（Trichrome &amp; Reticulin；若 dry tap 改採周邊血）。</li>
+            <li>細胞遺傳學（核型 ± FISH）。</li>
+            <li>流式細胞儀 (Flow cytometry)。</li>
+            <li><strong>廣泛 AML 相關 NGS 套組</strong>（偵測 <em>IDH1/2, FLT3, TP53, ASXL1</em> 等可標靶突變）。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>移植候選人 (Transplant Candidate)</h4>
+          <ul>
+            <li>臨床試驗</li>
+            <li><strong>橋接治療後接續 Allo-HCT</strong>（部分 AP 病人可直接移植不需橋接）：
+              <ul>
+                <li>HMA (Azacitidine / Decitabine)</li>
+                <li>HMA + JAK 抑制劑</li>
+                <li>HMA + Venetoclax</li>
+                <li>AML 強化誘導化療（注意 TLS 預防）</li>
+              </ul>
+            </li>
+            <li><em>JAKi 可續用至調理治療前以緩解脾腫大與症狀。</em></li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>非移植候選人 (Not a Candidate)</h4>
+          <ul>
+            <li>臨床試驗</li>
+            <li>HMA 單用</li>
+            <li>HMA + JAK 抑制劑（緩解脾腫大/症狀；Fedratinib/Momelotinib/Pacritinib 併用資料有限）</li>
+            <li>HMA + Venetoclax（CR/CRi 較 HMA 單用高但毒性顯著）</li>
+            <li>低強度化療，或依 NGS 使用<strong>標靶治療</strong>（如 <strong><em>IDH1/2</em> 或 <em>FLT3</em> 抑制劑</strong>單用或併用 HMA）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. SYMPTOMS & SUPPORTIVE CARE -->
+    <section class="card" id="symptoms">
+      <div class="sec-header">
+        <h2>13. 症狀負荷評估與支持性照護</h2>
+        <div class="sec-tags"><span class="code-tag">MPN-E 1–2</span><span class="code-tag">MPN-F 1–3</span></div>
+      </div>
+
+      <h3>A. MPN-SAF TSS (MPN-10) 症狀評估原則 (MPN-E)</h3>
+      <ul>
+        <li>基線與治療過程中皆建議由病人自填 <strong>MPN-10</strong>（10 項症狀各 0–10 分，總分 0–100：<strong>疲倦 [過去24小時最嚴重]、早飽、腹部不適、活動力下降、注意力不集中、盜汗、搔癢、骨痛、發燒 &gt;100°F、近 6 個月非自願體重減輕</strong>）。</li>
+        <li>症狀反應定義為總分下降 <strong>≥50%</strong>；但下降 &lt;50% 仍可能具臨床意義而支持續用 JAKi。症狀惡化可能是<strong>疾病進展警訊</strong>，應立即評估。</li>
+      </ul>
+
+      <h3>B. MF 一般支持性照護 (MPN-F 1/3)</h3>
+      <div class="grid-2">
+        <div class="box">
+          <h4>輸血、排鐵與脾臟介入</h4>
+          <ul>
+            <li><strong>輸血</strong>：症狀性貧血輸 RBC；血小板減少性出血或 <strong>Plt &lt;10,000/mm³</strong> 輸血小板。移植候選人須用<strong>減白血品</strong>（防 HLA 致敏與 CMV）。</li>
+            <li><strong>止血</strong>：對輸血無效之出血考慮抗纖維蛋白溶解劑。</li>
+            <li><strong>排鐵</strong>：低風險 MF 輸血 &gt;20 次及/或 ferritin &gt;2500 ng/mL 可考慮（角色仍不明確）。</li>
+            <li><strong>頑固巨大脾腫大 <span class="badge b-new">v1.2026</span></strong>：對 JAKi 無反應者可考慮<strong>脾臟放療、脾動脈栓塞或脾臟切除</strong>。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>感染預防、生長因子與心血管管理</h4>
+          <ul>
+            <li><strong>疫苗</strong>：使用 JAKi 前或期間建議接種<strong>非活性重組帶狀疱疹疫苗</strong>；脾切除者依 IDSA 指引接種疫苗與抗生素預防。</li>
+            <li><strong>G-CSF / GM-CSF</strong>：反覆嗜中性球低下感染可考慮，但<strong>脾腫大者須極度謹慎（有脾破裂風險）</strong>。</li>
+            <li><strong>降細胞 / TLS</strong>：PMF 高度增生可考慮 HU；進展期誘導化療注意 TLS 預防。</li>
+            <li><strong>心理與心血管</strong>：全程衛教戒菸、血壓、血糖、血脂控制，並適時轉介心理健康與整合照護專家。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>C. 常見困擾症狀專項處置 (MPN-F 2/3)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>症狀</th>
+              <th>階梯式處置策略</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>搔癢 (Pruritus)</strong></td>
+              <td>
+                1. 溫和護膚（短時間淋浴、溫和清潔、保濕）+ 優化抗組織胺（cetirizine, diphenhydramine）+ 外用類固醇。<br />
+                2. <strong>Ruxolitinib</strong>（於 MAJIC-ET, RESPONSE, COMFORT-I 證實顯著改善）。<br />
+                3. 其他選項：SSRIs、窄波 UVB 照光、PegIFN-α-2a（或 RopegIFN）、Gabapentin、Aprepitant、免疫抑制劑（cyclosporine, MTX, AZA, MMF）或 Dupilumab。
+              </td>
+            </tr>
+            <tr>
+              <td><strong>骨痛 (Bone Pain)</strong></td>
+              <td>
+                1. 仔細區分疾病相關骨痛與關節痛（確認是否適用局部治療）。<br />
+                2. <strong>Ruxolitinib</strong>（COMFORT-I 穩定骨/肌肉痛）；<strong>Loratadine</strong> 與 <strong>NSAIDs (naproxen)</strong>。<br />
+                3. <strong>單次低劑量放療 (Single-fraction radiation)</strong> 可暫時有效緩解嚴重肢體骨痛。
+              </td>
+            </tr>
+            <tr>
+              <td><strong>頭痛 / 耳鳴 (Headache / Tinnitus)</strong></td>
+              <td>
+                1. <strong>首要排除血栓</strong>（中風、視網膜動靜脈血栓、腦靜脈竇血栓），新發或難治神經症狀皆須檢查。<br />
+                2. 低劑量 <strong>Aspirin (80–100 mg/day)</strong>；若無效可改 <strong>BID</strong> 或加/換 Clopidogrel 75 mg/day。<br />
+                3. Aspirin 無效時建議<strong>細胞減量或放血</strong>（PV 高 Hct）；PV 合併缺鐵者 Ruxolitinib 可改善頭痛。<br />
+                4. 併用 Aspirin 時慎用 NSAIDs；偏頭痛型可考慮 Triptans 或 Topiramate。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 14. DRUG SAFETY -->
+    <section class="card" id="drug-safety">
+      <div class="sec-header">
+        <h2>14. 關鍵藥物使用須知 (JAKi / Interferons / Anagrelide)</h2>
+        <div class="sec-tags"><span class="code-tag">MPN-G 1–2</span><span class="badge b-new">v1.2026 大幅擴充</span></div>
+      </div>
+
+      <div class="grid-3">
+        <div class="box">
+          <h4>JAK 抑制劑 (Fedratinib, Momelotinib, Pacritinib, Ruxolitinib)</h4>
+          <ul>
+            <li><strong>停藥症候群 (Withdrawal syndrome)</strong>：突然中斷或停藥可能引發發燒、呼吸窘迫、低血壓、多重器官衰竭（症狀約 1 週內反彈）。除非因血小板或嗜中性球過低，建議<strong>逐步減量</strong>，發生時可考慮<strong>類固醇</strong>。</li>
+            <li><strong>皮膚癌篩檢</strong>：因非黑色素瘤皮膚癌 (NMSC) 風險增加，應<strong>至少每年一次皮膚科檢查</strong>。</li>
+            <li><strong>血脂監測</strong>：<strong>每 6 個月</strong>檢查血脂 (Lipid panel)。</li>
+            <li><strong>感染風險</strong>：增加伺機性感染、病毒再活化（如帶狀疱疹、HBV）與非典型病原感染風險。</li>
+            <li><strong>淋巴瘤風險</strong>：MPN 本身可併發淋巴腫瘤；雖有單一報告指出 JAKi 增加風險，但多數後續研究未見證據。</li>
+            <li><strong>個別特色</strong>：Fedratinib 具黑框警語須測 <strong>Thiamine</strong> 防 Wernicke 腦病變並預防 GI 副作用。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>干擾素 (Interferons)</h4>
+          <ul>
+            <li><strong>PegIFN-α-2a 劑量</strong>：起始 <strong>45 mcg/週</strong>，視需要每 4 週增加 45 mcg，最高 <strong>180 mcg/週</strong>。</li>
+            <li><strong>RopegIFN-α-2b-njft 劑量</strong>：起始 <strong>100 mcg 每 2 週</strong>（由 HU 轉換者起始 <strong>50 mcg/週</strong>），每 2 週增加 50 mcg（詳見仿單）。</li>
+            <li><strong>精神監測</strong>：治療前篩檢精神病史（憂鬱症），治療中監測憂鬱與焦慮症狀。</li>
+            <li><strong>自體免疫與內分泌</strong>：監測自體免疫疾病新發或惡化；<strong>基線及每年</strong>追蹤甲狀腺功能。</li>
+            <li><strong>肝功能與眼科</strong>：基線及治療中追蹤肝指數；<strong>基線眼科檢查</strong>（糖尿病/高血壓視網膜病變者須定期追蹤）。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Anagrelide</h4>
+          <ul>
+            <li><strong>起始與調整</strong>：<strong>0.5 mg BID</strong> 起，每週增加 0.5 mg（ANAHYDRET 試驗）。</li>
+            <li><strong>心臟評估</strong>：治療前須做<strong>基線心電圖 (ECG)</strong>。</li>
+            <li><strong>常見副作用</strong>：因 PDE-III 抑制作用常致心搏過速、心悸、頭痛、頭暈；建議減少咖啡因攝取並適度運動。</li>
+            <li><strong>心衰竭警訊</strong>：曾報告心臟功能不全惡化，有心衰病史者須謹慎使用。</li>
+            <li><strong>纖維化追蹤</strong>：須長期監測是否進展為 <strong>Post-ET 骨髓纖維化</strong>。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15. SPECIAL CONSIDERATIONS -->
+    <section class="card" id="special">
+      <div class="sec-header">
+        <h2>15. 特殊臨床情境：血栓、出血、手術與懷孕</h2>
+        <div class="sec-tags"><span class="code-tag">MPN-H 1–4</span></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>血管事件：血栓與出血 (MPN-H 1/4)</h4>
+          <ul>
+            <li><strong>活動性血栓</strong>：依 ACCP 指引給予抗凝治療（LMWH、DOAC 或 Warfarin）；療程長短依血栓嚴重度（如腹腔靜脈 vs DVT）、疾病控制與復發風險決定。</li>
+            <li><strong>抗凝＋Aspirin</strong>：合併使用會顯著增加出血風險，須高度個別化評估。依 <strong>Arterial Thrombosis Score</strong>（過去動脈血栓、&gt;60 歲、心血管風險、<em>TET2/DNMT3A</em> 突變）高風險者可考慮低劑量 Aspirin。</li>
+            <li><strong>強化降細胞</strong>：發生血栓須評估啟動或強化細胞減量治療（PV 維持 Hct &lt;45%）。</li>
+            <li><strong>ET 危及生命急症</strong>：急性危及生命血栓或嚴重出血時，可施行<strong>血小板分離術 (Plateletpheresis)</strong>。</li>
+            <li><strong>出血處置</strong>：排除共病、暫停 Aspirin 至止血、降細胞優化血小板、檢查 Acquired VWS；若發生意外腸胃道出血（特別是脾腫大、門脈高壓、胃靜脈曲張）應會診腸胃/肝膽科內視鏡評估。</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>手術圍術期管理 (MPN-H 1–2/4)</h4>
+          <ul>
+            <li>MPN 病人即使妥善控制，術後血栓與出血風險仍高（ET 動脈血栓較多，PV 靜脈血栓較多）；擇期手術前須多專科評估。</li>
+            <li><strong>PV 擇期手術前</strong>：Hct 須控制 <strong>&lt;45% 達 3 個月</strong>（CBC 接近正常但避免嚴重血球低下），必要時術前加做放血。</li>
+            <li><strong>Aspirin</strong>：術前 <strong>1 週停藥</strong>，術後 <strong>24 小時</strong>或視出血風險恢復；血管手術後可考慮 Aspirin 預防。</li>
+            <li><strong>抗凝藥</strong>：依藥物半衰期術前停藥，術後視出血風險恢復；高 VTE 風險手術（癌症、脾切除、骨科、心血管手術）應考慮<strong>延長抗凝預防</strong>。</li>
+            <li><strong>細胞減量藥物</strong>：圍術期原則上<strong>可持續使用</strong>，除非外科團隊有特殊禁忌。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>懷孕與哺乳管理 (MPN-H 2–3/4)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>情境 / 分類</th>
+              <th>處置建議</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>一般原則與哺乳</strong></td>
+              <td>
+                • 孕前高危險產科諮詢。<br />
+                • <strong>PV 孕期 Hct 目標</strong>：第一孕期 <strong>&lt;41%</strong>、第二孕期 <strong>&lt;38%</strong>、第三孕期 <strong>&lt;39%</strong>。<br />
+                • <strong>Hydroxyurea 禁忌</strong>：備孕、懷孕與哺乳皆須停用/避免（會分泌至乳汁）。<br />
+                • <strong>哺乳抗凝選擇</strong>：<strong>避免 DOACs</strong>；UFH、LMWH、Warfarin、Fondaparinux 皆安全。
+              </td>
+            </tr>
+            <tr>
+              <td><strong>標準風險懷孕</strong><br /><small>(無下方高風險特徵之 PV/ET)</small></td>
+              <td>全孕期每日<strong>低劑量 Aspirin</strong> ＋ <strong>產後前 6 週單用預防性 LMWH</strong>（產後 LMWH 療程結束後可恢復原有低劑量 Aspirin）。</td>
+            </tr>
+            <tr>
+              <td><strong>高風險懷孕定義</strong><br /><small>(符合任 1 項即屬高風險)</small></td>
+              <td>
+                • 曾有靜脈及/或動脈血栓（不論是否與懷孕相關）或曾有 PV/ET 相關出血。<br />
+                • 曾有懷孕併發症：≥10 週形態正常胎兒不明原因死胎；&lt;34 週因重度子癲前症/子癲症或胎盤功能不全早產；≥3 次 &lt;10 週連續不明原因流產；不明原因胎兒生長遲滯 (IUGR)；嚴重產前或產後出血。
+              </td>
+            </tr>
+            <tr>
+              <td><strong>高風險懷孕處置</strong><br /><small>(驗孕陽性立即啟動/續用)</small></td>
+              <td>
+                1. 每日<strong>低劑量 Aspirin</strong>。<br />
+                2. <strong>全孕期及產後 6 週預防性 LMWH</strong>（若有 MPN 出血史則避免預防性 LMWH；若孕前已因血栓用治療性抗凝則續用治療劑量 LMWH；硬膜外麻醉與分娩前停藥時機須與高危險產科及產科麻醉科討論）。<br />
+                3. 細胞減量治療：<strong>Interferon 或 Peginterferon alfa-2a</strong>（若無藥可考慮其他 pegylated IFN 如 ropeginterferon alfa-2b-njft，但目前懷孕資料極有限，不建議常規使用）。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 16. INTERACTIVE CALCULATORS -->
+    <section class="card" id="calculators">
+      <div class="sec-header">
+        <h2>16. 互動式臨床計算機 (MF / PV / ET 風險 &amp; MPN-10)</h2>
+        <div class="sec-tags"><span class="code-tag">CALC</span><span class="badge b-pref">即時試算</span></div>
+      </div>
+
+      <div class="tabs" data-tabgroup="calc-tabs">
+        <button class="tab-btn active" data-tab="calc-mf">MF 預後 (DIPSS / MIPSS-70+ v2.0)</button>
+        <button class="tab-btn" data-tab="calc-mysec">Post-PV/ET MF (MYSEC-PM)</button>
+        <button class="tab-btn" data-tab="calc-pvet">PV &amp; ET 風險 (IPSET / MIPSS)</button>
+        <button class="tab-btn" data-tab="calc-mpn10">MPN-SAF TSS (MPN-10)</button>
+      </div>
+
+      <!-- Calc 1: MF DIPSS / DIPSS-Plus / MIPSS-70+ v2.0 -->
+      <div class="tab-panel active" id="calc-mf">
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:0">輸入臨床、分子與核型參數，同步計算 <strong>DIPSS</strong>、<strong>DIPSS-Plus</strong> 與 <strong>MIPSS-70+ Version 2.0</strong> 並對應 NCCN 治療分層 (MF-1 vs MF-2)。</p>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="mf-sex">生理性別 (影響 MIPSS v2 貧血門檻)</label>
+            <select id="mf-sex">
+              <option value="M">男性 (Male)</option>
+              <option value="F">女性 (Female)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="mf-age">年齡 (Age)</label>
+            <select id="mf-age">
+              <option value="0">≤65 歲</option>
+              <option value="1">&gt;65 歲</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="mf-hb">血紅素 Hb (g/dL)</label>
+            <input type="number" id="mf-hb" step="0.1" value="11.5" min="3" max="22" />
+          </div>
+          <div class="calc-field">
+            <label for="mf-wbc">白血球 WBC (×10⁹/L)</label>
+            <select id="mf-wbc">
+              <option value="0">≤25</option>
+              <option value="1">&gt;25</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="mf-plt">血小板 Platelets (×10⁹/L)</label>
+            <select id="mf-plt">
+              <option value="0">≥100</option>
+              <option value="1">&lt;100</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="mf-blast">周邊血 Blasts (%)</label>
+            <select id="mf-blast">
+              <option value="0">&lt;1%</option>
+              <option value="1">1% (≥1% 但 &lt;2%)</option>
+              <option value="2">≥2%</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="mf-sym">全身症狀 (發燒/盜汗/體重減輕)</label>
+            <select id="mf-sym">
+              <option value="0">無</option>
+              <option value="1">有</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="mf-tx">紅血球輸血需求 (DIPSS-Plus)</label>
+            <select id="mf-tx">
+              <option value="0">無</option>
+              <option value="1">有</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="mf-calr">CALR Type 1 突變</label>
+            <select id="mf-calr">
+              <option value="1">無 (Absence of CALR type 1)</option>
+              <option value="0">有 (CALR type 1 陽性)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="mf-hmr">HMR 突變數 (ASXL1, EZH2, SRSF2, U2AF1 Q157, IDH1/2)</label>
+            <select id="mf-hmr">
+              <option value="0">0 個</option>
+              <option value="1">1 個</option>
+              <option value="2">≥2 個</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="mf-karyo">核型風險 (Karyotype)</label>
+            <select id="mf-karyo">
+              <option value="0">正常 / 良好 (Favorable)</option>
+              <option value="1">不良核型 (Unfavorable)</option>
+              <option value="2">極高風險核型 (VHR: -7, i(17q), inv(3), 12p-, 11q-等)</option>
+            </select>
+          </div>
+        </div>
+        <div class="res-grid" id="mf-results"></div>
+      </div>
+
+      <!-- Calc 2: MYSEC-PM -->
+      <div class="tab-panel" id="calc-mysec">
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:0">適用於 <strong>Post-PV MF</strong> 與 <strong>Post-ET MF</strong> 之 MYSEC-PM 預後評分 (MF-A 5/5)。</p>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="my-age">診斷年齡 (歲 × 0.15)</label>
+            <input type="number" id="my-age" value="62" min="18" max="100" />
+          </div>
+          <div class="calc-field">
+            <label for="my-hb">Hb &lt;11 g/dL (+2)</label>
+            <select id="my-hb"><option value="0">否 (≥11)</option><option value="2">是 (&lt;11)</option></select>
+          </div>
+          <div class="calc-field">
+            <label for="my-blast">周邊血 Blasts ≥3% (+2)</label>
+            <select id="my-blast"><option value="0">否 (&lt;3%)</option><option value="2">是 (≥3%)</option></select>
+          </div>
+          <div class="calc-field">
+            <label for="my-calr">無 CALR Type 1 突變 (+2)</label>
+            <select id="my-calr"><option value="2">是 (無 CALR type 1)</option><option value="0">否 (有 CALR type 1)</option></select>
+          </div>
+          <div class="calc-field">
+            <label for="my-plt">Plt &lt;150 × 10⁹/L (+1)</label>
+            <select id="my-plt"><option value="0">否 (≥150)</option><option value="1">是 (&lt;150)</option></select>
+          </div>
+          <div class="calc-field">
+            <label for="my-sym">全身症狀 (+1)</label>
+            <select id="my-sym"><option value="0">無</option><option value="1">有</option></select>
+          </div>
+        </div>
+        <div class="res-grid" id="my-results"></div>
+      </div>
+
+      <!-- Calc 3: PV & ET -->
+      <div class="tab-panel" id="calc-pvet">
+        <div class="grid-2">
+          <div class="box">
+            <h4>ET：Revised IPSET-Thrombosis &amp; MIPSS-ET</h4>
+            <div class="calc-grid">
+              <div class="calc-field">
+                <label for="et-age">年齡</label>
+                <select id="et-age"><option value="0">≤60 歲</option><option value="1">&gt;60 歲</option></select>
+              </div>
+              <div class="calc-field">
+                <label for="et-jak2">JAK2 突變</label>
+                <select id="et-jak2"><option value="0">陰性</option><option value="1">陽性</option></select>
+              </div>
+              <div class="calc-field">
+                <label for="et-throm">過去血栓病史</label>
+                <select id="et-throm"><option value="0">無</option><option value="1">有</option></select>
+              </div>
+              <div class="calc-field">
+                <label for="et-sex">生理性別 (MIPSS-ET)</label>
+                <select id="et-sex"><option value="0">女性</option><option value="1">男性 (+1)</option></select>
+              </div>
+              <div class="calc-field">
+                <label for="et-wbc">WBC ≥11 × 10⁹/L (MIPSS-ET)</label>
+                <select id="et-wbc"><option value="0">否</option><option value="1">是 (+1)</option></select>
+              </div>
+              <div class="calc-field">
+                <label for="et-mut">不良突變 (SRSF2/SF3B1/U2AF1/TP53)</label>
+                <select id="et-mut"><option value="0">無</option><option value="2">有 (+2)</option></select>
+              </div>
+            </div>
+            <div class="res-grid" id="et-results"></div>
+          </div>
+          <div class="box">
+            <h4>PV：Conventional 血栓風險 &amp; MIPSS-PV</h4>
+            <div class="calc-grid">
+              <div class="calc-field">
+                <label for="pv-age">年齡</label>
+                <select id="pv-age">
+                  <option value="0">&lt;60 歲</option>
+                  <option value="1">60–67 歲</option>
+                  <option value="2">&gt;67 歲 (MIPSS-PV +2)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label for="pv-throm">過去血栓病史</label>
+                <select id="pv-throm"><option value="0">無</option><option value="1">有 (+1)</option></select>
+              </div>
+              <div class="calc-field">
+                <label for="pv-wbc">WBC ≥15 × 10⁹/L (MIPSS-PV)</label>
+                <select id="pv-wbc"><option value="0">否</option><option value="1">是 (+1)</option></select>
+              </div>
+              <div class="calc-field">
+                <label for="pv-srsf2">SRSF2 突變 (MIPSS-PV)</label>
+                <select id="pv-srsf2"><option value="0">無</option><option value="3">有 (+3)</option></select>
+              </div>
+            </div>
+            <div class="res-grid" id="pv-results"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calc 4: MPN-10 -->
+      <div class="tab-panel" id="calc-mpn10">
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:0">拖曳滑桿評估 10 項症狀嚴重度（0＝無症狀，10＝可想像最嚴重），總分 0–100 分 (MPN-E 2/2)。</p>
+        <div id="mpn10-list" style="display:grid;gap:8px;"></div>
+        <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <button type="button" class="tab-btn" id="mpn10-reset">重置分數</button>
+        </div>
+        <div class="res-grid" id="mpn10-results"></div>
+      </div>
+    </section>
+
+    <footer>
+      本速查手冊整理翻譯自 NCCN Clinical Practice Guidelines in Oncology: Myeloproliferative Neoplasms (Version 3.2026, Sept 18, 2026)，僅供臨床醫師學術與學習參考，實際醫療決策請依病人個別臨床狀況與最新官方指引為準。
+    </footer>
+  </main>
+
+  <script>
+    // --- Theme Toggle ---
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('mpn-guide-theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeBtn.textContent = '☀️ 淺色';
+    }
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('mpn-guide-theme', isDark ? 'light' : 'dark');
+      themeBtn.textContent = isDark ? '🌙 深色' : '☀️ 淺色';
+    });
+
+    // --- Mobile Sidebar ---
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const closeSidebar = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
+    menuBtn.addEventListener('click', () => { sidebar.classList.toggle('open'); overlay.classList.toggle('open'); });
+    overlay.addEventListener('click', closeSidebar);
+    document.querySelectorAll('.nav-link').forEach(a => a.addEventListener('click', closeSidebar));
+
+    // --- Scroll Spy ---
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+    const sections = Array.from(document.querySelectorAll('section.card'));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+
+    // --- Tabs ---
+    document.querySelectorAll('.tabs').forEach(group => {
+      const btns = group.querySelectorAll('.tab-btn');
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const parent = group.parentElement;
+          btns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const targetId = btn.dataset.tab;
+          parent.querySelectorAll(':scope > .tab-panel').forEach(p => {
+            p.classList.toggle('active', p.id === targetId);
+          });
+        });
+      });
+    });
+
+    // --- Live Search & Highlight ---
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+    const searchCount = document.getElementById('searchCount');
+
+    function clearHighlights() {
+      document.querySelectorAll('mark.hl').forEach(m => {
+        const parent = m.parentNode;
+        parent.replaceChild(document.createTextNode(m.textContent), m);
+        parent.normalize();
+      });
+      sections.forEach(s => s.style.display = '');
+    }
+
+    function performSearch() {
+      const q = searchInput.value.trim();
+      searchClear.style.display = q ? 'block' : 'none';
+      clearHighlights();
+      if (!q) { searchCount.textContent = ''; return; }
+
+      const esc = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(esc, 'gi');
+      let totalMatches = 0;
+      let firstMark = null;
+
+      sections.forEach(sec => {
+        let secMatches = 0;
+        const walker = document.createTreeWalker(sec, NodeFilter.SHOW_TEXT, {
+          acceptNode: node => {
+            if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+            const tag = node.parentNode.tagName;
+            if (['SCRIPT', 'STYLE', 'OPTION', 'SELECT', 'INPUT'].includes(tag)) return NodeFilter.FILTER_REJECT;
+            return regex.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+          }
+        });
+        const nodes = [];
+        let n;
+        while ((n = walker.nextNode())) nodes.push(n);
+        nodes.forEach(textNode => {
+          const frag = document.createDocumentFragment();
+          let lastIdx = 0;
+          const str = textNode.nodeValue;
+          regex.lastIndex = 0;
+          let m;
+          while ((m = regex.exec(str)) !== null) {
+            if (m.index > lastIdx) frag.appendChild(document.createTextNode(str.slice(lastIdx, m.index)));
+            const mark = document.createElement('mark');
+            mark.className = 'hl';
+            mark.textContent = m[0];
+            frag.appendChild(mark);
+            if (!firstMark) firstMark = mark;
+            secMatches++;
+            totalMatches++;
+            lastIdx = m.index + m[0].length;
+          }
+          if (lastIdx < str.length) frag.appendChild(document.createTextNode(str.slice(lastIdx)));
+          textNode.parentNode.replaceChild(frag, textNode);
+        });
+        sec.style.display = secMatches > 0 ? '' : 'none';
+      });
+
+      searchCount.textContent = totalMatches > 0 ? `${totalMatches} 筆符合` : '無符合結果';
+      if (firstMark) firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    let debounce;
+    searchInput.addEventListener('input', () => { clearTimeout(debounce); debounce = setTimeout(performSearch, 180); });
+    searchClear.addEventListener('click', () => { searchInput.value = ''; performSearch(); searchInput.focus(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement !== searchInput && document.activeElement.tagName !== 'INPUT') {
+        e.preventDefault(); searchInput.focus();
+      } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = ''; performSearch(); searchInput.blur();
+      }
+    });
+
+    // --- Calc 1: MF DIPSS / DIPSS-Plus / MIPSS-70+ v2.0 ---
+    function updateMF() {
+      const sex = document.getElementById('mf-sex').value;
+      const age = +document.getElementById('mf-age').value;
+      const hb = parseFloat(document.getElementById('mf-hb').value) || 0;
+      const wbc = +document.getElementById('mf-wbc').value;
+      const plt = +document.getElementById('mf-plt').value;
+      const blast = +document.getElementById('mf-blast').value; // 0:<1, 1:1, 2:>=2
+      const sym = +document.getElementById('mf-sym').value;
+      const tx = +document.getElementById('mf-tx').value;
+      const calrAbs = +document.getElementById('mf-calr').value;
+      const hmr = +document.getElementById('mf-hmr').value;
+      const karyo = +document.getElementById('mf-karyo').value;
+
+      // DIPSS (0-6)
+      const dipss = age + wbc + (hb < 10 ? 2 : 0) + (blast >= 1 ? 1 : 0) + sym;
+      const dipssCat = dipss === 0 ? ['Low', 'ok', 0] : dipss <= 2 ? ['Int-1', 'info', 1] : dipss <= 4 ? ['Int-2', 'warn', 2] : ['High', 'danger', 3];
+      const dipssNccn = dipss <= 2 ? 'Lower-Risk (MF-1)' : 'Higher-Risk (MF-2)';
+
+      // DIPSS-Plus (0-6)
+      const dp = dipssCat[2] + plt + tx + (karyo >= 1 ? 1 : 0);
+      const dpCat = dp === 0 ? ['Low (OS 15.4y)', 'ok'] : dp === 1 ? ['Int-1 (OS 6.5y)', 'info'] : dp <= 3 ? ['Int-2 (OS 2.9y)', 'warn'] : ['High (OS 1.3y)', 'danger'];
+      const dpNccn = dp <= 1 ? 'Lower-Risk (MF-1)' : 'Higher-Risk (MF-2) — 評估 Allo-HCT';
+
+      // MIPSS-70+ v2.0
+      let hbPts = 0;
+      if (sex === 'F') {
+        if (hb < 8) hbPts = 2; else if (hb < 10) hbPts = 1;
+      } else {
+        if (hb < 9) hbPts = 2; else if (hb < 11) hbPts = 1;
+      }
+      const hmrPts = hmr === 0 ? 0 : hmr === 1 ? 2 : 3;
+      const karyoPts = karyo === 0 ? 0 : karyo === 1 ? 3 : 4;
+      const m2 = hbPts + (blast >= 2 ? 1 : 0) + (sym ? 2 : 0) + (calrAbs ? 2 : 0) + hmrPts + karyoPts;
+      const m2Cat = m2 === 0 ? ['Very Low (OS NR)', 'ok'] : m2 <= 2 ? ['Low (OS 10.3y)', 'ok'] : m2 <= 4 ? ['Intermediate (OS 7.0y)', 'warn'] : m2 <= 8 ? ['High (OS 3.5y)', 'danger'] : ['Very High (OS 1.8y)', 'danger'];
+      const m2Nccn = m2 <= 3 ? 'Lower-Risk (≤3 分 → MF-1)' : 'Higher-Risk (≥4 分 → MF-2，建議移植評估)';
+
+      document.getElementById('mf-results').innerHTML = `
+        <div class="res-card ${m2Cat[1]}"><div class="res-title">MIPSS-70+ v2.0 (Preferred)</div><div class="res-val">${m2} 分 — ${m2Cat[0]}</div><div class="res-desc">NCCN 路徑：<strong>${m2Nccn}</strong></div></div>
+        <div class="res-card ${dpCat[1]}"><div class="res-title">DIPSS-Plus</div><div class="res-val">${dp} 分 — ${dpCat[0]}</div><div class="res-desc">NCCN 路徑：<strong>${dpNccn}</strong></div></div>
+        <div class="res-card ${dipssCat[1]}"><div class="res-title">DIPSS (無核型時)</div><div class="res-val">${dipss} 分 — ${dipssCat[0]}</div><div class="res-desc">NCCN 路徑：<strong>${dipssNccn}</strong></div></div>
+      `;
+    }
+    ['mf-sex','mf-age','mf-hb','mf-wbc','mf-plt','mf-blast','mf-sym','mf-tx','mf-calr','mf-hmr','mf-karyo'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateMF);
+      document.getElementById(id).addEventListener('change', updateMF);
+    });
+    updateMF();
+
+    // --- Calc 2: MYSEC-PM ---
+    function updateMYSEC() {
+      const age = parseFloat(document.getElementById('my-age').value) || 0;
+      const score = +(age * 0.15 + +document.getElementById('my-hb').value + +document.getElementById('my-blast').value + +document.getElementById('my-calr').value + +document.getElementById('my-plt').value + +document.getElementById('my-sym').value).toFixed(2);
+      const cat = score < 11 ? ['Low (OS NR)', 'ok'] : score < 14 ? ['Int-1 (OS 9y)', 'info'] : score < 16 ? ['Int-2 (OS 4y)', 'warn'] : ['High (OS 2y)', 'danger'];
+      const nccn = score < 14 ? 'Lower-Risk (&lt;14 分 → MF-1)' : 'Higher-Risk (≥14 分 → MF-2，建議移植評估)';
+      document.getElementById('my-results').innerHTML = `
+        <div class="res-card ${cat[1]}"><div class="res-title">MYSEC-PM 總分</div><div class="res-val">${score} 分 — ${cat[0]}</div><div class="res-desc">NCCN 路徑：<strong>${nccn}</strong></div></div>
+      `;
+    }
+    ['my-age','my-hb','my-blast','my-calr','my-plt','my-sym'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateMYSEC);
+      document.getElementById(id).addEventListener('change', updateMYSEC);
+    });
+    updateMYSEC();
+
+    // --- Calc 3: PV & ET ---
+    function updateET() {
+      const age = +document.getElementById('et-age').value;
+      const jak2 = +document.getElementById('et-jak2').value;
+      const throm = +document.getElementById('et-throm').value;
+      const sex = +document.getElementById('et-sex').value;
+      const wbc = +document.getElementById('et-wbc').value;
+      const mut = +document.getElementById('et-mut').value;
+
+      let ipset, cls, tx;
+      if (throm === 1 || (age === 1 && jak2 === 1)) {
+        ipset = 'High-Risk (ET-2)'; cls = 'danger'; tx = 'Aspirin + 啟動細胞減量治療 (HU 首選)';
+      } else if (age === 1 && jak2 === 0) {
+        ipset = 'Intermediate-Risk (ET-1)'; cls = 'warn'; tx = '控制心血管風險 + Aspirin 81–100 mg/day';
+      } else if (age === 0 && jak2 === 1) {
+        ipset = 'Low-Risk (ET-1)'; cls = 'info'; tx = '控制心血管風險 + Aspirin 81–100 mg/day';
+      } else {
+        ipset = 'Very-Low-Risk (ET-1)'; cls = 'ok'; tx = '控制心血管風險；僅血管舒縮症狀時用 Aspirin';
+      }
+
+      const mipss = sex + wbc + mut + (age === 1 ? 4 : 0);
+      const mCat = mipss <= 1 ? ['Low (OS 34.4y)', 'ok'] : mipss <= 5 ? ['Intermediate (OS 14.1y)', 'warn'] : ['High (OS 7.9y)', 'danger'];
+      document.getElementById('et-results').innerHTML = `
+        <div class="res-card ${cls}"><div class="res-title">Revised IPSET-Thrombosis</div><div class="res-val">${ipset}</div><div class="res-desc">${tx}</div></div>
+        <div class="res-card ${mCat[1]}"><div class="res-title">MIPSS-ET (存活預後)</div><div class="res-val">${mipss} 分 — ${mCat[0]}</div><div class="res-desc">Low 0–1 | Int 2–5 | High ≥6</div></div>
+      `;
+    }
+    ['et-age','et-jak2','et-throm','et-sex','et-wbc','et-mut'].forEach(id => document.getElementById(id).addEventListener('change', updateET));
+    updateET();
+
+    function updatePV() {
+      const age = +document.getElementById('pv-age').value; // 0:<60, 1:60-67, 2:>67
+      const throm = +document.getElementById('pv-throm').value;
+      const wbc = +document.getElementById('pv-wbc').value;
+      const srsf2 = +document.getElementById('pv-srsf2').value;
+
+      const isHigh = age >= 1 || throm === 1;
+      const mipss = throm + wbc + (age === 2 ? 2 : 0) + srsf2;
+      const mCat = mipss <= 1 ? ['Low (OS 24y)', 'ok'] : mipss <= 3 ? ['Intermediate (OS 13.1y)', 'warn'] : ['High (OS 3.2y)', 'danger'];
+      document.getElementById('pv-results').innerHTML = `
+        <div class="res-card ${isHigh ? 'danger' : 'ok'}"><div class="res-title">PV 血栓風險分層</div><div class="res-val">${isHigh ? 'High-Risk (PV-2)' : 'Low-Risk (PV-1)'}</div><div class="res-desc">${isHigh ? 'Aspirin + 放血 (Hct &lt;45%) + 細胞減量 (HU / RopegIFN)' : 'Aspirin + 放血 (Hct &lt;45%)；初始不需細胞減量'}</div></div>
+        <div class="res-card ${mCat[1]}"><div class="res-title">MIPSS-PV (存活預後)</div><div class="res-val">${mipss} 分 — ${mCat[0]}</div><div class="res-desc">Low 0–1 | Int 2–3 | High ≥4</div></div>
+      `;
+    }
+    ['pv-age','pv-throm','pv-wbc','pv-srsf2'].forEach(id => document.getElementById(id).addEventListener('change', updatePV));
+    updatePV();
+
+    // --- Calc 4: MPN-10 ---
+    const mpnItems = [
+      '疲倦感 (Fatigue — 過去 24 小時最嚴重程度)',
+      '早飽感 (Early satiety — 吃一點就飽)',
+      '腹部不適 (Abdominal discomfort)',
+      '活動力下降 (Inactivity)',
+      '注意力不集中 (Problems with concentration)',
+      '夜間盜汗 (Night sweats)',
+      '皮膚搔癢 (Itching / Pruritus)',
+      '骨痛 (Bone pain — 非關節炎)',
+      '發燒 >37.8°C / 100°F (Fever)',
+      '近 6 個月非自願體重減輕 (Unintentional weight loss)'
+    ];
+    const mpnList = document.getElementById('mpn10-list');
+    mpnItems.forEach((label, idx) => {
+      const row = document.createElement('div');
+      row.className = 'slider-row';
+      row.innerHTML = `<span>${idx + 1}. ${label}</span><input type="range" min="0" max="10" value="0" class="mpn10-slider" data-idx="${idx}" /><span class="slider-val" id="mpn10-v-${idx}">0</span>`;
+      mpnList.appendChild(row);
+    });
+    function updateMPN10() {
+      let sum = 0;
+      let maxItem = 0;
+      document.querySelectorAll('.mpn10-slider').forEach(sl => {
+        const v = +sl.value;
+        sum += v;
+        if (v > maxItem) maxItem = v;
+        document.getElementById('mpn10-v-' + sl.dataset.idx).textContent = v;
+      });
+      const cls = sum === 0 ? 'ok' : sum < 20 ? 'info' : sum < 40 ? 'warn' : 'danger';
+      const note = sum === 0 ? '無顯著症狀負荷，可定期追蹤。' : `治療後總分下降 ≥50%（目標 ≤${Math.floor(sum / 2)} 分）定義為症狀反應；單項最高分 ${maxItem}/10，若分數顯著上升應評估疾病進展。`;
+      document.getElementById('mpn10-results').innerHTML = `
+        <div class="res-card ${cls}"><div class="res-title">MPN-SAF TSS (MPN-10) 總分</div><div class="res-val">${sum} / 100 分</div><div class="res-desc">${note}</div></div>
+      `;
+    }
+    document.querySelectorAll('.mpn10-slider').forEach(sl => sl.addEventListener('input', updateMPN10));
+    document.getElementById('mpn10-reset').addEventListener('click', () => {
+      document.querySelectorAll('.mpn10-slider').forEach(sl => sl.value = 0);
+      updateMPN10();
+    });
+    updateMPN10();
+  </script>
+</body>
+</html>
