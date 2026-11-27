@@ -135,6 +135,19 @@
       color: var(--primary);
       background: var(--primary-light);
     }
+    .who-top-link {
+      font-size: 12.5px;
+      color: var(--primary);
+      text-decoration: none;
+      border: 1px solid var(--primary);
+      background: var(--primary-light);
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: all .15s;
+      font-weight: 600;
+    }
+    .who-top-link:hover { opacity: 0.88; }
     .search-wrap {
       flex: 1;
       max-width: 440px;
@@ -537,6 +550,7 @@
       <span class="ver">NCCN v3.2026</span>
     </div>
     <a class="portal-link" href="https://lichiahans.github.io/hematology-portal/" target="_blank" rel="noopener">← 血液科入口網</a>
+    <a class="who-top-link" href="https://lichiahans.github.io/who5-hematolymphoid-guide/#ch2-mpn" target="_blank" rel="noopener" title="開啟 WHO 第 5 版骨髓增生性腫瘤 (MPN) 分類">🌳 WHO 5th MPN</a>
     <div class="search-wrap">
       <input type="text" id="searchInput" class="search-input" placeholder="即時搜尋藥物、基因、分數或條目... (按 / 聚焦)" aria-label="搜尋指引內容" />
       <button class="search-clear" id="searchClear" aria-label="清除搜尋">✕</button>
